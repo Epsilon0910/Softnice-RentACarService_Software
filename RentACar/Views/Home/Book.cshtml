@@ -1,0 +1,181 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rent a Car-Details</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/owl.carousel.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/bootstrap.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/font-awesome.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/style.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/ionicons.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/animate.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/responsive.css">
+
+    <!-- Js -->
+    <script src="@Url.Content("~/Content/mytemplate/")js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/owl.carousel.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/plugins.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/min/waypoints.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/jquery.counterup.js"></script>
+    <!-- Google Map -->
+    <script src="@Url.Content("~/Content/mytemplate/")https://maps.googleapis.com/maps/api/js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/google-map-init.js"></script>
+
+    <script src="@Url.Content("~/Content/mytemplate/")js/main.js"></script>
+
+</head>
+<body>
+    <!-- Header Start -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- header Nav Start -->
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                
+
+                                    <img src="~/Content/mytemplate/img/logo.png" />
+                               
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right">
+                                   
+                                    <li>@Html.ActionLink("Works", "Works")</li>
+                                    <li>@Html.ActionLink("Book a Car", "Book")</li>
+                                    <li>@Html.ActionLink("Logout", "Login")</li>
+                                    
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header><!-- header close -->
+    <!-- Slider Start -->
+    <section id="global-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1>Add Details</h1>
+                        <p>Don’t just take our word for it. Check out some of our latest work.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact form start -->
+    <section id="contact-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="block">
+                        
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="block">
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="contact-box" class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="block">
+                        <form action="@Url.Action("Schedule", "Home" )" method="post">
+                            <div align="center">Name: <input type="text" name="name" id="Name" placeholder="enter your name" required></div> <br />
+                            <div align="center">Phone: <input type="text" name="number" id="Number" onkeypress="NumberValidation()" placeholder="enter 10 digit valid number" required></div><br />
+                            <div align="center">Email: <input type="text" name="email" id="Email" required placeholder="enter your email"></div><br />
+                            <div align="center"><input type="submit" value="Next" onclick="ValidateRegistrationForm()"></div>                          
+                            </form>
+                </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- Call to action Start -->
+    <section id="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h2>We design delightful digital experiences.</h2>
+                        <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer Start -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-manu">
+                        
+                    </div>
+                    <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">SoftNice</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        function ValidateRegistrationForm() {
+            var email = $('#Email').val();
+            var MobileNumber = $('#Number').val();
+            if (!isEmail(email)) {
+                alert("Please enter valid email");
+            }
+            if (!CheckIndianNumber(MobileNumber)) {
+                alert("Please enter a valid number");
+            }
+           
+        }
+        function isEmail(email) {
+            var pattern = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
+            return pattern.test(email);
+        }
+        function CheckIndianNumber(MobileNumber) {
+            var IndNum = new RegExp("(?:(?:\\+|0{0,2})91(\\s*[\\- ]\\s*)?|[0 ]?)?[789]\\d{9}|(\\d[ -]?){10}\\d", "g");
+            return IndNum.test(MobileNumber);
+        }
+        function NumberValidation()
+        {
+           
+            if((event.keyCode<48 || event.keyCode>57))
+            {
+                document.getElementById("Number").val() = '';
+            }
+        }
+
+    </script>
+
+</body>
+</html>
