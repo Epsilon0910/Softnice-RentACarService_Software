@@ -1,8 +1,4 @@
-﻿@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8">
@@ -12,102 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- CSS -->
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/")logincss.css" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" />
-    <style>
-
-
-body {
-  background: #999;
-  padding: 40px;
-  font-family: "Open Sans Condensed", sans-serif;
-}
-
-#bg {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: url(http://lorempixel.com/800/500/nature) no-repeat center center fixed;
-  background-size: cover;
-  -webkit-filter: blur(5px);
-}
-
-form {
-
-  position: relative;
-  width: 150px,150px;
-  margin: 100px auto;
-  display: inline-block;
-  background: rgba(60,60,60,.35) ;
-  padding: 350px 250px;
-  border: 0px solid;
-  border-top-color: #4caf50;
-  border-left-color: #fff;
-  border-bottom-color:#fff;
-  border-right-color: #4caf50;
-}
-.btn{
-      width: 250px;
-background: #4caf50;
-
-}
-
-form input, form button {
-
-  width: 212px;
-  align-content:center;
-  border: 3px solid;
-  border-bottom-color: rgba(255,255,255,.5);
-  border-right-color: rgba(60,60,60,.35);
-  border-top-color: rgba(60,60,60,.35);
-  border-left-color: rgba(80,80,80,.45);
-  background-color: rgba(0,0,0,.2);
-  background-repeat: no-repeat;
-  padding: 8px 24px 8px 10px;
-  font: bold .875em/11.25em "Open Sans Condensed", sans-serif;
-  letter-spacing: .075em;
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(0,0,0,.1);
-  margin-bottom: 19px;
-
-
-}
-
-form input:focus { background-color: rgba(0,0,0,.4); }
-
-form input.email {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAMCAYAAAC9QufkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6M0YwNDIzMTQ3QzIzMTFFMjg3Q0VFQzhDNTgxMTRCRTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6M0YwNDIzMTU3QzIzMTFFMjg3Q0VFQzhDNTgxMTRCRTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozRjA0MjMxMjdDMjMxMUUyODdDRUVDOEM1ODExNEJFNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDozRjA0MjMxMzdDMjMxMUUyODdDRUVDOEM1ODExNEJFNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsOChsgAAADUSURBVHjaYvz///9JBgYGMwbSwSkGoOafQPwKiAOBmIEIHAXED0H6QJwPQGwAxE+AOJOAxnwgvgfEKiB9MM0gWg6IbwNxIw6NXUB8HogloHwUzSAsBAoDIJ4DxMxQMRA9H4gPADE/kloMzSCsBcR/gHgj1LAt0HBRR1P3gQktBA2AeBcQZwHxCyB+AsT3gTgFKq6FohrJZnssoW6AxPaDBqoZurP9oBrtCYS2ExA/h9JgzX+gAsZExrMZVP0fmGZ1IjWiBCoL0NsXgPgGGcnzLECAAQD5y8iZ2Z69IwAAAABJRU5ErkJggg==);
-  background-position: 220px 10px;
-}
-
-form input.pass {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAQCAYAAADNo/U5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTVFMDg1QzU3QzIzMTFFMjgwQThGODZFM0EwQUZFQ0YiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTVFMDg1QzY3QzIzMTFFMjgwQThGODZFM0EwQUZFQ0YiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1NUUwODVDMzdDMjMxMUUyODBBOEY4NkUzQTBBRkVDRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1NUUwODVDNDdDMjMxMUUyODBBOEY4NkUzQTBBRkVDRiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv2NSIIAAADYSURBVHjanJAxCsJAEEXXaBMQtvIMqTxDKjtPELC1svMoOYM2WlqIhVcQFMVgG7ATAoIggfGPjrLIrBo/vCzZ+Z+dGUNExiECI7Clhw5gAtqur8YfUQxm4AzGIAMRSIAFXbC8OyUdghwsgH173cp9Lr5XqAeOSsANcj3h/8BpbQ4Ko6uQOvtMQy6noG4+iz3XZ4iHbIEQ9L8EeUlN3t5etvSrMg6RqajAc78BQ7BTq6QrllV3tKLvpZOclyrt/TWTlTP0zVQqba/BAKyUWsmh1BPUxL70JsAABHkyyK1uocIAAAAASUVORK5CYII=);
-  background-position: 223px 8px
-}
-
-::-webkit-input-placeholder { color: #ccc; text-transform: uppercase; }
-::-moz-placeholder { color: #ccc; text-transform: uppercase; }
-:-ms-input-placeholder { color: #ccc; text-transform: uppercase; }
-
-form button[type=submit] {
-  width: 248px;
-  margin-bottom: 0;
-  color: #3f898a;
-  letter-spacing: .05em;
-  text-shadow: 0 1px 0 #133d3e;
-  text-transform: uppercase;
-  background: #225556;
-  border-top-color: #9fb5b5;
-  border-left-color: #608586;
-  border-bottom-color: #1b4849;
-  border-right-color: #1e4d4e;
-  cursor: pointer;
-}
-    </style>
     <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/owl.carousel.css">
     <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/bootstrap.min.css">
     <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/font-awesome.min.css">
@@ -131,7 +31,67 @@ form button[type=submit] {
     <script src="@Url.Content("~/Content/mytemplate/")js/google-map-init.js"></script>
 
     <script src="@Url.Content("~/Content/mytemplate/")js/main.js"></script>
+    <style>
+      
+         table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
 
+        th, td {
+            padding: 5px;
+        }
+
+        th {
+            text-align: left;
+        }
+        .display-car-box {
+            background-color: #eeddff;
+            padding: 15px;
+        }
+        .sub-section-header {
+            padding: 5px 10px;
+            background-color: lightgrey;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 15px;
+        } 
+         #display-car-wraper {
+            width: 50%;
+            margin-left: 50%;
+        }
+          .section-header {
+            padding: 10px 10px;
+            background-color: #3b5998;
+            color: white;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing:2px;
+            font-size:17px;
+        }
+           body {
+            font-family: "Open Sans Condensed", sans-serif;
+        }
+           #check-availability-wraper {
+            margin: auto;
+            width: 45%;
+            float: left;
+        }
+            .sub-section-header {
+            padding: 5px 10px;
+            background-color: lightgrey;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 15px;
+        } 
+             .check-availability-box {
+            background-color: #eeddff;
+            padding:30px;
+        }
+              .row-fluid {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Start -->
@@ -152,6 +112,7 @@ form button[type=submit] {
                                 </button>
 
 
+
                                 <img src="~/Content/mytemplate/img/logo.png" />
 
                             </div>
@@ -159,7 +120,7 @@ form button[type=submit] {
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right">
 
-                                    <li>@Html.ActionLink("Works", "Works")</li>
+                                    <li>@Html.ActionLink("Filters", "Landing")</li>
                                     <li>@Html.ActionLink("Book a Car", "Book")</li>
                                     <li>@Html.ActionLink("Logout", "Login")</li>
 
@@ -171,118 +132,165 @@ form button[type=submit] {
             </div>
         </div>
     </header><!-- header close -->
-    <!-- Slider Start -->
-    <section id="global-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <h1>Add Details</h1>
-                        <p>Don’t just take our word for it. Check out some of our latest work.</p>
-                    </div>
-                </div>
+   
+
+    
+        
+            <div class="section-header">
+                Filters
             </div>
+    <div id="check-availability-wraper">
+        <div class="check-availability-box">
+            <div class="row-fluid">
+                CAR TYPE
+                <select>
+                    <option>--Select--</option>
+                    <option>Hatchback</option>
+                    <option>Sedan</option>
+                    <option>MPV</option>
+                    <option>SUV</option>
+                </select>
+            </div><br />
+            <div class="row-fluid">
+                <input type="radio" name="gender" value="AC" checked> A/C&nbsp;&nbsp;
+                <input type="radio" name="gender" value="NON"> NON A/C<br>
+            </div><br />
+            <div class="row-fluid">
+                CAR FUEL
+                <select>
+                    <option>--Select--</option>
+                    <option>Petrol</option>
+                    <option>Diesel</option>
+                    <option>Gas</option>
+                </select>
+            </div><br />
+            <div class="row-fluid">
+                DURATION
+                <select>
+                    <option>--Select--</option>
+                    <option>Days</option>
+                    <option>Weeks</option>
+                </select>&nbsp;&nbsp;<input type="number" name="many" id="Many" placeholder="for how many days/weeks" />
+            </div><br />
+            <div class="row-fluid">
+                FROM: <input type="date" name="from" id="From" required="">
+                TO: <input type="date" name="to" id="To" required="">
+            </div><br />
+            <div class="row-fluid">
+                PICKUP
+                <select>
+                    <option>--Select--</option>
+                    <option>Within City</option>
+                    <option>Out Of Station</option>
+                </select>
+            </div><br />
+            <div align="left" class="div5"><input type="submit" value="Submit"></div>
+
         </div>
-    </section>
-    <!-- contact form start -->
-    <section id="contact-form">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="block">
+        </div>
 
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="block">
-
-                    </div>
+        <div id="display-car-wraper">
+            <div class="sub-section-header">
+                Cars Available
+            </div>
+            <div class="display-car-box">
+                <table style="width:100%">
+                    <tr>
+                        <th>S.No.</th>
+                        <th>CAR NAME</th>
+                        <th>CLASS</th>
+                        <th>YEAR</th>
+                        <th>BOOKING STATUS</th>
+                        <th>START DATE</th>
+                        <th>END DATE</th>
+                        <th>PAYMENT STATUS</th>
+                        <th>PICKUP</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <div class="row-fluid">
+                    <input type="button" class="btn btn-primary" value="Book Car" />
                 </div>
             </div>
-            <div id="contact-box" class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="block">
-                        <div align="center">
-                            <form action="@Url.Action("Landing", "Home" )" method="post">
 
-                                <h1>Schedule</h1>
-                                <label for="">From</label>
-                                <input type="date" name="fromdate" id="fromdate" required>
-
-                                <label for="">To</label>
-                                <input type="date" name="todate" id="todate" required>
-
-                                <p><input type="submit" class="btn" value="Submit" onclick="javascript:return Validate();" /></p>
-
-
-                                <p class="errormeaasge" id="perrormsg"></p>
-
-                            </form>
-
-                                 <script>
-                                        function Validate()
-                                        {
-                                            var x =$("#Email").val();
-                                            var y =$("#Password").val();
-                                            var validationmessage = '';
-
-                                            if (x == "") {
-                                                validationmessage = "Username must be filled";
-                                                $("#perrormsg").html(validationmessage);
-                                                return false;
-                                            }
-
-
-                                  if (y == "") {
-                                      validationmessage = "Password must be filled";
-                                      $("#perrormsg").html(validationmessage);
-                                   return false
-                                  }
-                                     return true
-                                     }
+        </div>
 
 
 
-                                 </script>
+
+
+
+
+        <!-- Call to action Start -->
+        <section id="call-to-action">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <h2>We design delightful digital experiences.</h2>
+                            <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
 
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
+        </section>
+        <!-- footer Start -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-manu">
 
-
-
-
-    </section>
-    <!-- Call to action Start -->
-    <section id="call-to-action">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <h2>We design delightful digital experiences.</h2>
-                        <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
-
+                        </div>
+                        <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">SoftNice</a>.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- footer Start -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="footer-manu">
-
-                    </div>
-                    <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">SoftNice</a>.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
 
 </body>
