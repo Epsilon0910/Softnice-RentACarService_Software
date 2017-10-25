@@ -40,147 +40,13 @@
 
     <script src="@Url.Content("~/Content/mytemplate/")js/main.js"></script>
     <style>
-        #mainselection select {
-            border: 0;
-            color: #ffffff;
-            background: transparent;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 1px 1px;
-            width: 378px;
-            *width: 350px;
-            *background: #58B14C;
-            -webkit-appearance: none;
-        }
-
-        #mainselection {
-            overflow: hidden;
-            width: 212px;
-            display: inline-block;
-            height: -350px;
-            align-content: center;
-            border: 3px solid;
-            border-bottom-color: rgba(255,255,255,.5);
-            border-right-color: rgba(60,60,60,.35);
-            border-top-color: rgba(60,60,60,.35);
-            border-left-color: rgba(80,80,80,.45);
-            background-color: rgba(0,0,0,.2);
-            background-repeat: no-repeat;
-            padding: 8px 170px 8px 105px;
-            font: bold .875em/1.em "Open Sans Condensed", sans-serif;
-            letter-spacing: .075em;
-            color: #fff;
-            text-shadow: 0 1px 0 rgba(0,0,0,.1);
-            margin-bottom: 19px;
-            box-shadow: 1px 1px 11px #330033;
-            background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
-        }
-
-        button::-moz-focus-inner, input::-moz-focus-inner {
-            padding: 0;
-            border: 0;
-        }
-
-        ::-moz-placeholder {
-            color: #ccc;
-            text-transform: uppercase;
-        }
-
-        ::before, ::after {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        element {
-        }
-
-        input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"] {
-            line-height: 34px;
-            line-height: 1.42857143 �;
-        }
-
-        form input, form button {
-            width: 212px;
-            align-content: center;
-            border: 3px solid;
-            border-top-color: currentcolor;
-            border-right-color: currentcolor;
-            border-bottom-color: currentcolor;
-            border-left-color: currentcolor;
-            border-bottom-color: rgba(255,255,255,.5);
-            border-right-color: rgba(60,60,60,.35);
-            border-top-color: rgba(60,60,60,.35);
-            border-left-color: rgba(80,80,80,.45);
-            background-color: rgba(0,0,0,.2);
-            background-repeat: no-repeat;
-            padding: 8px 24px 8px 10px;
-            font: bold .875em/1.25em "Open Sans Condensed", sans-serif;
-            line-height: 1.25em;
-            letter-spacing: .075em;
-            color: #fff;
-            text-shadow: 0 1px 0 rgba(0,0,0,.1);
-            margin-bottom: 19px;
-        }
-
-        input, button, select, textarea {
-            font-family: inherit;
-            font-size: inherit;
-            line-height: inherit;
-        }
-
-        input {
-            line-height: normal;
-        }
-
-        button, input, optgroup, select, textarea {
-            margin: 0px;
-            margin-bottom: 0px;
-            font: inherit;
-            color: inherit;
-        }
-
-        * {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        body {
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-family: "Open Sans Condensed", sans-serif;
             font-size: 14px;
             line-height: 1.42857143;
             color: black;
         }
 
-        body {
-            font-family: "Open Sans Condensed", sans-serif;
-        }
-
-        html {
-            font-size: 10px;
-        }
-
-        html {
-            font-family: sans-serif;
-        }
-
-        /*table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 5px;
-        }
-
-        th {
-            text-align: left;
-        }*/
         table {
             border-collapse: collapse;
             border-spacing: 0;
@@ -189,7 +55,7 @@
         }
 
         th, td {
-            border:1px solid grey;
+            border: 1px solid grey;
             text-align: left;
             padding: 8px;
         }
@@ -202,12 +68,13 @@
             margin: auto;
             width: 30%;
             float: left;
-            
+            border: 1px solid white;
+            border-radius: 5px;
         }
 
         .check-availability-box {
             background-color: #eeddff;
-            padding:15px;
+            padding: 15px;
         }
 
         vr {
@@ -220,49 +87,51 @@
         }
 
         #display-car-wraper {
-            width: 65%;
+            width: 67%;
             display: inline-block;
-            
         }
 
         .display-car-box {
             background-color: #eeddff;
             padding: 15px;
-            overflow-x:auto;
+            overflow-x: auto;
         }
 
         .section-header {
             padding: 10px 10px;
-            background-color: #3b5998;
+            background-color: #1db954;
             color: white;
             font-weight: 500;
             margin-bottom: 15px;
-            letter-spacing:2px;
-            font-size:17px;
+            letter-spacing: 2px;
+            font-size: 17px;
         }
+
         .sub-section-header {
             padding: 5px 10px;
             background-color: lightgrey;
             font-weight: 400;
             letter-spacing: 1px;
             font-size: 15px;
-        } 
+        }
+
         .row-fluid {
             margin: 5px 0;
         }
 
-        .row-fluid label{
-            margin-right:5px;
-            letter-spacing:1px;
-            width:100px;
+        .row-fluid label {
+            margin-right: 5px;
+            letter-spacing: 1px;
+            width: 100px;
         }
 
-        .row-fluid select{
-            width:50%;
+        .row-fluid select {
+            width: 50%;
         }
+
         .row-fluid input[type=date] {
             width: 50%;
-            height:23px;
+            height: 23px;
         }
 
         .custom-button {
@@ -271,12 +140,17 @@
             text-align: center;
             font-size: 16px;
             cursor: pointer;
-            background-color: #eeddff;
-            color: black;
-            border: 2px solid #008CBA;
-            border-radius:5px;
+            background-color: #1db954;
+            color: white;
+            border: 2px solid #1db954;
+            border-radius: 5px;
+            letter-spacing: 1px;
         }
-        
+
+        .custom-button:hover {
+            background-color: lightgrey;
+            color:black;
+        }
     </style>
 </head>
 <body>
@@ -443,7 +317,6 @@
                     <input type="button" class="custom-button" value="Book Car" />
                 </div>
             </div>
-            
         </div>
     </section>
     <!-- Call to action Start -->

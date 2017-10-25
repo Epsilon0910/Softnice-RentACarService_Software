@@ -50,7 +50,6 @@ background: #4caf50;
 }
 
 form input, form button {
-
   width: 212px;
   align-content:center;
   border: 3px solid;
@@ -66,7 +65,6 @@ form input, form button {
   color: #fff;
   text-shadow: 0 1px 0 rgba(0,0,0,.1);
   margin-bottom: 19px;
-
 
 }
 
@@ -86,8 +84,8 @@ form input.pass {
 ::-moz-placeholder { color: #ccc; text-transform: uppercase; }
 :-ms-input-placeholder { color: #ccc; text-transform: uppercase; }
 
-form button[type=submit] {
-  width: 248px;
+        form button[type=submit] {
+            width: 248px;
   margin-bottom: 0;
   color: #3f898a;
   letter-spacing: .05em;
@@ -99,7 +97,8 @@ form button[type=submit] {
   border-bottom-color: #1b4849;
   border-right-color: #1e4d4e;
   cursor: pointer;
-}
+            
+        }
     </style>
 
 </head>
@@ -114,7 +113,7 @@ form button[type=submit] {
         <label for=""></label>
         <input type="password" name="Password" id="Password" placeholder="password" class="pass" required>
 
-        <p><button class="btn" onclick="Validate()">Login as Employee</button></p>
+        <button class="btn"  onclick="Validate()">Login as Employee</button>
 
 
         <p class="errormeaasge" id="perrormsg"></p>
