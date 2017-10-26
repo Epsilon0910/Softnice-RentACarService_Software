@@ -28,5 +28,9 @@ namespace RentACar.Controllers
         {
             return View();
         }
+        public ActionResult Adminlanding()
+        {
+            return View();
+        }
     }
 }
