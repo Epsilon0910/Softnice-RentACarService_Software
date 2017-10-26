@@ -45,7 +45,6 @@
             width: 100%;
             border: 1px solid #ddd;
         }
-        
 
         th, td {
             border: 1px solid grey;
@@ -54,16 +53,23 @@
         }
 
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f2f2f2
         }
 
-        .box {
+        #wraper-availability {
+            margin: auto;
+            width: 30%;
+            float: left;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+
+        .availability-box {
             background-color: #eeddff;
             padding: 15px;
-            overflow-x:auto;
         }
 
-         vr {
+        vr {
             display: inline-block;
             width: 1px;
             background-color: lightgrey;
@@ -71,11 +77,16 @@
             margin-right: 1%;
             height: 300px;
         }
-       
 
         #table-wraper {
             width: 67%;
-            margin-left: 33%;
+            display: inline-block;
+        }
+
+        .box {
+            background-color: #eeddff;
+            padding: 15px;
+            overflow-x: auto;
         }
 
         .section-header {
@@ -88,13 +99,6 @@
             font-size: 17px;
         }
 
-
-        #wraper-availability {
-            margin: auto;
-            width: 30%;
-            float: left;
-        }
-
         .for-header {
             padding: 5px 10px;
             background-color: lightgrey;
@@ -103,28 +107,26 @@
             font-size: 15px;
         }
 
-        .availability-box {
-            background-color: #eeddff;
-            padding: 30px;
-        }
-
         .row-fluid {
             margin: 5px 0;
         }
-        
-        .row-fluid select {
-            width: 50%;
-        }
+
         .row-fluid label {
             margin-right: 5px;
             letter-spacing: 1px;
             width: 100px;
         }
+
+        .row-fluid select {
+            width: 50%;
+        }
+
         .row-fluid input[type=date] {
             width: 50%;
             height: 23px;
         }
-       .style-button {
+
+        .custom-button {
             padding: 5px 25px;
             margin: 4px 2px;
             text-align: center;
@@ -136,7 +138,8 @@
             border-radius: 5px;
             letter-spacing: 1px;
         }
-         .style-button:hover {
+
+        .custom-button:hover {
             background-color: lightgrey;
             color:black;
         }
@@ -185,7 +188,7 @@
    
 
     <section id="contact-form" class="container">
-        <div class="section-header" align="center">
+        <div class="section-header">
             Filters
         </div>
         <div id="wraper-availability">
@@ -242,19 +245,19 @@
                     <input type="radio" name="gender" value="NON">NON A/C
                 </div>
                 <div class="row-fluid" align="center">
-                    <input type="button" class="style-button" value="Submit" />
-                    <input type="button" class="style-button" value="Estimate" />
+                    <input type="button" class="custom-button" value="Submit" />
+                    <input type="button" class="custom-button" value="Estimate" />
                 </div>              
             </div>
         </div>
-        @*<vr></vr>*@
+       @*<vr/>*@
 
         <div id="table-wraper">
             <div class="for-header">
                 <label>Cars Available</label>
             </div>
             <div class="box">
-                <table style="width:100%">
+                <table>
                     <tr>
                         <th>S.No.</th>
                         <th>CAR NAME</th>
@@ -316,12 +319,6 @@
 
         </div><br /><br /><br /><br /><br />
     </section>
-
-
-
-
-
-
         <!-- Call to action Start -->
         <section id="call-to-action">
             <div class="container">
