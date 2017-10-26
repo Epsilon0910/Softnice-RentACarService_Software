@@ -28,7 +28,11 @@ namespace RentACar.Controllers
         {
             return View();
         }
+<<<<<<< HEAD
         public ActionResult Adminlanding()
+=======
+        public ActionResult CarDetails()
+>>>>>>> c6a70782686e73ab37d2a18fab3b4ea26eda1a17
         {
             return View();
         }
