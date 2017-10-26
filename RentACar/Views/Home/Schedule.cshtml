@@ -45,12 +45,7 @@
             width: 100%;
             border: 1px solid #ddd;
         }
-         button, input, optgroup, select, textarea {
-            margin: 0px;
-            margin-bottom: 0px;
-            font: inherit;
-            color: inherit;
-        }
+        
 
         th, td {
             border: 1px solid grey;
@@ -65,24 +60,27 @@
         .display-car-box {
             background-color: #eeddff;
             padding: 15px;
+            overflow-x:auto;
         }
 
-        .sub-section-header {
-            padding: 5px 10px;
+         vr {
+            display: inline-block;
+            width: 1px;
             background-color: lightgrey;
-            font-weight: 400;
-            letter-spacing: 1px;
-            font-size: 15px;
+            margin-left: 1%;
+            margin-right: 1%;
+            height: 300px;
         }
+       
 
         #display-car-wraper {
-            width: 60%;
-            margin-left: 46%;
+            width: 67%;
+            margin-left: 33%;
         }
 
         .section-header {
             padding: 10px 10px;
-            background-color: #3b5998;
+            background-color: #1db954;
             color: white;
             font-weight: 500;
             margin-bottom: 15px;
@@ -93,7 +91,7 @@
 
         #check-availability-wraper {
             margin: auto;
-            width: 40%;
+            width: 30%;
             float: left;
         }
 
@@ -113,19 +111,35 @@
         .row-fluid {
             margin: 5px 0;
         }
-
+        
+        .row-fluid select {
+            width: 50%;
+        }
+        .row-fluid label {
+            margin-right: 5px;
+            letter-spacing: 1px;
+            width: 100px;
+        }
+        .row-fluid input[type=date] {
+            width: 50%;
+            height: 23px;
+        }
        .custom-button {
             padding: 5px 25px;
             margin: 4px 2px;
             text-align: center;
             font-size: 16px;
             cursor: pointer;
-            background-color: #eeddff;
-            color: black;
-            border: 2px solid #008CBA;
-            border-radius:5px;
+            background-color: #1db954;
+            color: white;
+            border: 2px solid #1db954;
+            border-radius: 5px;
+            letter-spacing: 1px;
         }
-         
+         .custom-button:hover {
+            background-color: lightgrey;
+            color:black;
+        }
     </style>
 </head>
 <body>
@@ -204,15 +218,18 @@
                         <option>--Select--</option>
                         <option>Days</option>
                         <option>Weeks</option>
-                    </select>&nbsp;&nbsp;<input type="number" name="many" id="Many" placeholder="for how many days/weeks" />
-                </div>                
+                    </select>
+                </div>     
+                 
                 <div class="row-fluid">
-                    <label>TYPE:</label>
-                    <input type="radio" name="gender" value="AC" checked> A/C&nbsp;&nbsp;
-                    <input type="radio" name="gender" value="NON"> NON A/C<br>
-                </div>
-
-
+                    <label>  PICK UP:</label>
+                    <select>
+                        <option>--Select--</option>
+                        <option>Within City</option>
+                        <option>Out Of Station</option>
+                    </select>
+                </div>          
+                
                 <div class="row-fluid">
                     <label for="">FROM :</label>
                     <input type="date" name="dateofbirth" required>
@@ -220,20 +237,17 @@
                     <input type="date" name="dateofbirth" required>
                 </div>
                 <div class="row-fluid">
-                    <label>  PICKUP:</label>
-                    <select>
-                        <option>--Select--</option>
-                        <option>Within City</option>
-                        <option>Out Of Station</option>
-                    </select>
+                    <label>TYPE:</label>
+                    <input type="radio" name="gender" value="AC">A/C
+                    <input type="radio" name="gender" value="NON">NON A/C
                 </div>
                 <div class="row-fluid" align="center">
                     <input type="button" class="custom-button" value="Submit" />
                     <input type="button" class="custom-button" value="Estimate" />
-                </div>
-                <br /><br />
+                </div>              
             </div>
         </div>
+        @*<vr></vr>*@
 
         <div id="display-car-wraper">
             <div class="sub-section-header">
@@ -300,7 +314,7 @@
 
             </div>
 
-        </div><br /><br /><br /><br /><br /><br /><br /><br />
+        </div><br /><br /><br /><br /><br />
     </section>
 
 
