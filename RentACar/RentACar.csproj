@@ -265,11 +265,6 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Schedule.cshtml" />
     <Content Include="Views\Home\Landing.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\Home\Adminlanding.cshtml" />
-=======
-    <Content Include="Views\Home\CarDetails.cshtml" />
->>>>>>> c6a70782686e73ab37d2a18fab3b4ea26eda1a17
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
