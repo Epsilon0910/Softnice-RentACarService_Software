@@ -57,7 +57,7 @@
             background-color: #f2f2f2;
         }
 
-        .display-car-box {
+        .box {
             background-color: #eeddff;
             padding: 15px;
             overflow-x:auto;
@@ -73,7 +73,7 @@
         }
        
 
-        #display-car-wraper {
+        #table-wraper {
             width: 67%;
             margin-left: 33%;
         }
@@ -89,13 +89,13 @@
         }
 
 
-        #check-availability-wraper {
+        #wraper-availability {
             margin: auto;
             width: 30%;
             float: left;
         }
 
-        .sub-section-header {
+        .for-header {
             padding: 5px 10px;
             background-color: lightgrey;
             font-weight: 400;
@@ -103,7 +103,7 @@
             font-size: 15px;
         }
 
-        .check-availability-box {
+        .availability-box {
             background-color: #eeddff;
             padding: 30px;
         }
@@ -124,7 +124,7 @@
             width: 50%;
             height: 23px;
         }
-       .custom-button {
+       .style-button {
             padding: 5px 25px;
             margin: 4px 2px;
             text-align: center;
@@ -136,7 +136,7 @@
             border-radius: 5px;
             letter-spacing: 1px;
         }
-         .custom-button:hover {
+         .style-button:hover {
             background-color: lightgrey;
             color:black;
         }
@@ -188,11 +188,11 @@
         <div class="section-header" align="center">
             Filters
         </div>
-        <div id="check-availability-wraper">
-            <div class="sub-section-header">
+        <div id="wraper-availability">
+            <div class="for-header">
                 <label>Select Features</label>
             </div>
-            <div class="check-availability-box">
+            <div class="availability-box">
                 <div class="row-fluid">
                     <label> CAR TYPE:</label>
                     <select>
@@ -242,18 +242,18 @@
                     <input type="radio" name="gender" value="NON">NON A/C
                 </div>
                 <div class="row-fluid" align="center">
-                    <input type="button" class="custom-button" value="Submit" />
-                    <input type="button" class="custom-button" value="Estimate" />
+                    <input type="button" class="style-button" value="Submit" />
+                    <input type="button" class="style-button" value="Estimate" />
                 </div>              
             </div>
         </div>
         @*<vr></vr>*@
 
-        <div id="display-car-wraper">
-            <div class="sub-section-header">
+        <div id="table-wraper">
+            <div class="for-header">
                 <label>Cars Available</label>
             </div>
-            <div class="display-car-box">
+            <div class="box">
                 <table style="width:100%">
                     <tr>
                         <th>S.No.</th>
