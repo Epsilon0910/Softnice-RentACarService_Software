@@ -36,7 +36,121 @@
     <script src="@Url.Content("~/Content/mytemplate/")js/google-map-init.js"></script>
 
     <script src="@Url.Content("~/Content/mytemplate/")js/main.js"></script>
+    <style>
+        body {
+            font-family: "Open Sans Condensed", sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: black;
+        }
 
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            border: 1px solid grey;
+            text-align: left;
+            padding: 8px;
+        }
+        .box {
+            background-color: #e1dcd6;
+            padding: 15px;
+            overflow-x: auto;
+            width: 335%;
+            
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        #check-availability-wraper {
+            margin: auto;
+            width: 30%;
+            float: left;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+
+        .check-availability-box {
+            background-color: #eeddff;
+            padding: 15px;
+        }
+
+   
+        #display-car-wraper {
+            width: 67%;
+            display: inline-block;
+        }
+
+        .display-car-box {
+            background-color: #eeddff;
+            padding: 15px;
+            overflow-x: auto;
+        }
+
+        .section-header {
+            padding: 10px 10px;
+            background-color: #1db954;
+            color: white;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-size: 17px;
+            
+        }
+
+        .sub-section-header {
+            padding: 5px 10px;
+            background-color: lightgrey;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 15px;
+           width:335%;
+        }
+
+        .row-fluid {
+            margin: 5px 0;
+            width: 100PX;
+        }
+
+        .row-fluid label {
+            margin-right: 5px;
+            letter-spacing: 1px;
+            width: 100px;
+        }
+
+        .row-fluid select {
+            width: 50%;
+        }
+
+        .row-fluid input[type=date] {
+            width: 50%;
+            height: 23px;
+        }
+
+        .custom-button {
+            padding: 5px 25px;
+            margin: 4px 2px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #1db954;
+            color: white;
+            border: 2px solid #1db954;
+            border-radius: 5px;
+            letter-spacing: 1px;
+        }
+
+        .custom-button:hover {
+            background-color: lightgrey;
+            color:black;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Start -->
@@ -90,35 +204,46 @@
         </div>
     </section>
     <!-- contact form start -->
-    <section id="contact-form">
+    @*<section id="contact-form">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="block">
-                        
+
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="block">
-                        
+
                     </div>
                 </div>
-            </div>
-            <div id="contact-box" class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="block">
-                        <form action="@Url.Action("Schedule", "Home" )" method="post">
-                            <div align="center">Name: <input type="text" name="name" id="Name" placeholder="enter your name" required></div> <br />
-                            <div align="center">Phone: <input type="text" name="number" id="Number" onkeypress="NumberValidation()" placeholder="enter 10 digit valid number" required></div><br />
-                            <div align="center">Email: <input type="text" name="email" id="Email" required placeholder="enter your email"></div><br />
-                            <div align="center"><input type="submit" value="Next" onclick="ValidateRegistrationForm()"></div>                          
-                            </form>
-                </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
+            </div>*@
+            <form action="@Url.Action("Schedule", "Home" )" method="post">
+                <section id="contact-form" class="container">
+                    <div class="section-header">
+                        BOOK A CAR
+                    </div>
+                    <div id="check-availability-wraper">
+                        <div class="sub-section-header">
+                            ADD CUSTOMER DETAILS
+                        </div>
+                        <div class="box">
+                            <div class="row-fluid">
+                                <label>CUSTOMER NAME</label>
+                                <input type="text" name="name" id="Name" placeholder="enter your name" required><br>
+                                <label>CUSTOMER NUMBER</label>
+                                <input type="text" name="number" id="Number" onkeypress="NumberValidation()" placeholder="enter 10 digit valid number" required><br>
+                                <label>CUSTOMER EMAIL</label>
+                                <input type="text" name="email" id="Email" required placeholder="enter your email"><br>
+                                <input type="submit" value="NEXT" class="custom-button" onclick="ValidateRegistrationForm()"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                </form>
+
+      
+  
     <!-- Call to action Start -->
     <section id="call-to-action">
         <div class="container">

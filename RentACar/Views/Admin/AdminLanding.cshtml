@@ -1,17 +1,372 @@
 ﻿
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Landing page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- CSS -->
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/bootstrap.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/font-awesome.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/style.css">
+
+    <!-- Js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
     <title>AdminLanding</title>
+    <style>
+
+        .section-header {
+            padding: 10px 10px;
+            background-color: #bab6ab;
+            color: white;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-size: 17px;
+        }
+
+        .box {
+            background-color: #e1dcd6;
+            padding: 15px;
+            overflow-x: auto;
+        }
+
+        .row-fluid {
+            margin: 5px 0;
+        }
+
+            .row-fluid label {
+                margin-right: 8px;
+                letter-spacing: 1px;
+                width: 200px;
+            }
+
+        .custom-button {
+            padding: 5px 25px;
+            margin: 4px 2px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #bab6ab;
+            color: white;
+            border: 2px solid #bab6ab;
+            border-radius: 5px;
+            letter-spacing: 1px;
+        }
+
+            .custom-button:hover {
+                background-color: lightgrey;
+                color: black;
+            }
+
+        #table-wraper {
+            width: 100%;
+            display: inline-block;
+        }
+
+        .for-header {
+            padding: 5px 10px;
+            background-color: #bab6ab;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 15px;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            border: 1px solid grey;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+
+
+        /*Style tab*/
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        /* Style the tab */
+        div.tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        div.tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        div.tab button:hover {
+        background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        div.tab button.active {
+        background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        }
+        
+    </style>
 </head>
 <body>
-    <div> 
-    </div>
+    <!-- Header Start -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- header Nav Start -->
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <img src="~/Content/mytemplate/img/logo.png" />
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>@Html.ActionLink("Filters", "Landing")</li>
+                                    <li>@Html.ActionLink("Book a Car", "Book")</li>
+                                    <li>@Html.ActionLink("Logout", "Login")</li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header><!-- header close -->
+    
+        <section id="contact-form" class="container">
+            <div class="section-header">
+                Rent A Car
+            </div>
+            <div class="tab">
+                <button class="tablinks" onclick="openDetails(event, 'Car')">CAR DETAILS</button>
+                <button class="tablinks" onclick="openDetails(event, 'Employee')">EMPLOYEE DETAILS</button>
+                <button class="tablinks" onclick="openDetails(event, 'Vendor')">VENDOR DETAILS</button>
+            </div>
+
+            <div id="Car" class="tabcontent">
+                <h3></h3>
+                <div class="box">
+                    <div class="row-fluid">
+                        <label>EMPLOYEE CODE</label>
+                        <input type="text" name="" id="" placeholder="Employee Name" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="row-fluid">
+                        <label>CAR NAME:</label>
+                        <input type="text" name="" id="" placeholder="oo" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>MANUFACTURER'S NAME</label>
+                        <input type="text" name="" id="" placeholder="oo" />
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="row-fluid">
+                        <label>ENGINE NUMBER:</label>
+                        <input type="text" name="" id="" placeholder="oo" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>CHASIS NUMBER</label>
+                        <input type="text" name="" id="" placeholder="oo" />
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="row-fluid">
+                        <label>LAUNCH YEAR</label>
+                        <input type="text" name="" id="" placeholder="oo" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>CAR COLOR</label>
+                        <input type="text" name="" id="" placeholder="oo" />
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="row-fluid">
+                        <label>AC</label>
+                        <input type="text" name="" id="" placeholder="oo" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>NON-AC</label>
+                        <input type="text" name="" id="" placeholder="oo" />
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="row-fluid">
+                        <label>VENDOR'S NAME</label>
+                        <input type="text" name="" id="" placeholder="oo" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>CREATION DATE</label>
+                        <input type="text" name="" id="" placeholder="oo" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="row-fluid">
+                            <label>Active :</label>
+                            <input type="radio" name="payment" value="Paid"> Yes
+                            <input type="radio" name="payment" value="Not Paid">No
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="row-fluid" align="right">
+                        <input type="button" class="custom-button" value="SUBMIT" />
+                        <input type="button" class="custom-button" value="RESET" />
+                    </div>
+                </div>
+                <br />
+                <div id="table-wraper">
+                    <div class="for-header">
+                        <label>Cars Available</label>
+                    </div>
+                    <div class="box">
+                        <table>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>CAR NAME</th>
+                                <th>CLASS</th>
+                                <th>YEAR</th>
+                                <th>BOOKING STATUS</th>
+                                <th>START DATE</th>
+                                <th>END DATE</th>
+                                <th>PAYMENT STATUS</th>
+                                <th>PICKUP</th>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Employee" class="tabcontent">
+                <h3>Employee Details</h3>
+                <p>Employee details to be loaded</p>
+            </div>
+
+            <div id="Vendor" class="tabcontent">
+                <h3>Vednor Details</h3>
+                <p>Vendor details to be loaded.</p>
+            </div>
+            </div>
+        </section>
+    <!-- Call to action Start -->
+    <section id="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h2>We design delightful digital experiences.</h2>
+                        <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer Start -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-manu">
+
+                    </div>
+                    <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">SoftNice</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+        <script>
+function openDetails(evt, details) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(details).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+        </script>
+
+    
 </body>
 </html>
