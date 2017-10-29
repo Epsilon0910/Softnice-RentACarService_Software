@@ -8,11 +8,19 @@ namespace RentACar.Controllers
 {
     public class AdminController : Controller
     {
+        public ActionResult AdminLanding()
+        {
+            return View();
+        }
         public ActionResult CarDetails()
         {
             return View();
         }
-        public ActionResult AdminLanding()
+        public ActionResult EmployeeDetails()
+        {
+            return View();
+        }
+        public ActionResult VendorDetails()
         {
             return View();
         }

@@ -1,12 +1,9 @@
-﻿
-
-<!DOCTYPE html>
-
-<html>
+﻿<!DOCTYPE html>
+<html class="no-js">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Landing page</title>
+    <title>Rent a Car-Vendor Details</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -20,64 +17,84 @@
     <!-- Js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
-    <title>AdminLanding</title>
     <style>
-
-        .section-header {
-            padding: 10px 10px;
-            background-color: #bab6ab;
+        .main-header {
+            padding: 5px;
+            background-color: #a09d93;
+            border-bottom: 1px solid black;
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-topright: 5px;
             color: white;
-            font-weight: 500;
+            font-weight: 700;
             margin-bottom: 15px;
             letter-spacing: 2px;
-            font-size: 17px;
+            font-size: 20px;
+            height: 40px;
         }
 
-        .box {
-            background-color: #e1dcd6;
-            padding: 15px;
-            overflow-x: auto;
+        .sub-header {
+            padding: 5px 10px;
+            background-color: #bab6ab;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 15px;
         }
 
         .row-fluid {
             margin: 5px 0;
         }
 
-            .row-fluid label {
-                margin-right: 8px;
-                letter-spacing: 1px;
-                width: 200px;
-            }
-
         .custom-button {
             padding: 5px 25px;
-            margin: 4px 2px;
+            margin: 5px 5px;
             text-align: center;
             font-size: 16px;
             cursor: pointer;
-            background-color: #bab6ab;
+            background-color: #7c7a72;
             color: white;
             border: 2px solid #bab6ab;
             border-radius: 5px;
             letter-spacing: 1px;
         }
 
-            .custom-button:hover {
-                background-color: lightgrey;
-                color: black;
-            }
-
-        #table-wraper {
-            width: 100%;
-            display: inline-block;
+        .custom-button:hover {
+            background-color: #e1dcd6;
+            color: black;
         }
 
-        .for-header {
-            padding: 5px 10px;
-            background-color: #bab6ab;
-            font-weight: 400;
-            letter-spacing: 1px;
-            font-size: 15px;
+        .main-wrapper {
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 50px 0;
+        }
+
+        .main {
+            margin: 15px 5px;
+        }
+
+        .vendor-detail-fields-wrapper {
+            border: 1px solid grey;
+            border-bottom: 5px solid grey;
+            margin: 5px 0px;
+            background-color: #e1dcd6;
+        }
+
+        .vendor-detail-fields {
+            margin: 5px 0px;
+        }
+
+        .car-table-wrapper {
+            border: 1px solid grey;
+            border-bottom: 5px solid grey;
+            width: 100%;
+            display: inline-block;
+            margin: 5px 0px;
+        }
+
+        .car-table {
+            background-color: #e1dcd6;
+            padding: 15px 10px;
+            overflow-x: auto;
         }
 
         table {
@@ -96,53 +113,9 @@
         tr:nth-child(even) {
             background-color: #f2f2f2
         }
-
-
-
-        /*Style tab*/
-        body {
-            font-family: "Lato", sans-serif;
-        }
-
-        /* Style the tab */
-        div.tab {
-        overflow: hidden;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
-        }
-
-        /* Style the buttons inside the tab */
-        div.tab button {
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        font-size: 17px;
-        }
-
-        /* Change background color of buttons on hover */
-        div.tab button:hover {
-        background-color: #ddd;
-        }
-
-        /* Create an active/current tablink class */
-        div.tab button.active {
-        background-color: #ccc;
-        }
-
-        /* Style the tab content */
-        .tabcontent {
-        display: none;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-top: none;
-        }
-        
     </style>
 </head>
+
 <body>
     <!-- Header Start -->
     <header>
@@ -176,81 +149,114 @@
             </div>
         </div>
     </header><!-- header close -->
-        <section id="contact-form" class="container">
-            <div class="tab">
-                <button class="tablinks active" onclick="openDetails(event, 'Car')">CAR DETAILS</button>
-                <button class="tablinks" onclick="openDetails(event, 'Employee')">EMPLOYEE DETAILS</button>
-                <button class="tablinks" onclick="openDetails(event, 'Vendor')">VENDOR DETAILS</button>
+    <section class="container">
+        <div class="main-wrapper">
+            <div class="main-header">
+                Vendor Detail Page
             </div>
+            <div class="main">
+                <div class="vendor-detail-fields-wrapper">
+                    <div class="vendor-detail-fields-header sub-header">
+                        <strong>Vendor Detail Fields</strong>
+                    </div>
+                    <div class="vendor-detail-fields container-fluid">
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>Organization Name</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="text" placeholder="" />
+                            </div>
 
-            <div id="Car" class="tabcontent" style="display: block;">
-                <h3></h3>
-                <div class="box">
-                    <div class="row-fluid">
-                        <label>EMPLOYEE CODE</label>
-                        <input type="text" name="" id="" placeholder="Employee Name" />
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="row-fluid">
-                        <label>CAR NAME:</label>
-                        <input type="text" name="" id="" placeholder="oo" />
-                        <label>MANUFACTURER'S NAME</label>
-                        <input type="text" name="" id="" placeholder="oo" />
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="row-fluid">
-                        <label>ENGINE NUMBER:</label>
-                        <input type="text" name="" id="" placeholder="oo" />
-                        <label>CHASIS NUMBER</label>
-                        <input type="text" name="" id="" placeholder="oo" />
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="row-fluid">
-                        <label>LAUNCH YEAR</label>
-                        <input type="text" name="" id="" placeholder="oo" />
-                        <label>CAR COLOR</label>
-                        <input type="text" name="" id="" placeholder="oo" />
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="row-fluid">
-                        <label>AC</label>
-                        <input type="text" name="" id="" placeholder="oo" />
-                        <label>NON-AC</label>
-                        <input type="text" name="" id="" placeholder="oo" />
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="row-fluid">
-                        <label>VENDOR'S NAME</label>
-                        <input type="text" name="" id="" placeholder="oo" />
-                        <label>CREATION DATE</label>
-                        <input type="text" name="" id="" placeholder="oo" />
+                            <div class="col-sm-3 col-md-3">
+                                <label>Supplier Name</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="text" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>Supplier Email</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="text" placeholder="" />
+                            </div>
+
+                            <div class="col-sm-3 col-md-3">
+                                <label>Vendore Code</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="text" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>Country</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="text" placeholder="" />
+                            </div>
+
+                            <div class="col-sm-3 col-md-3">
+                                <label>City</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="text" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>State</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="text" placeholder="" />
+                            </div>
+
+                            <div class="col-sm-3 col-md-3">
+                                <label>State Code</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="text" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>Contact Number</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="text" placeholder="" />
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <label>Active</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="text" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>Address</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <textarea rows="3" cols="20"></textarea>
+                            </div>
+                        </div>
                         <div class="row-fluid">
-                            <label>Active :</label>
-                            <input type="radio" name="payment" value="Paid"> Yes
-                            <input type="radio" name="payment" value="Not Paid">No
+                            <button class="custom-button">Submit</button>
+                            <button class="custom-button">Reset</button>
                         </div>
                     </div>
                 </div>
-                <div class="box">
-                    <div class="row-fluid" align="right">
-                        <input type="button" class="custom-button" value="SUBMIT" />
-                        <input type="button" class="custom-button" value="RESET" />
+
+                <div class="car-table-wrapper">
+                    <div class="car-table-header sub-header">
+                        <strong>Cars Available</strong>
                     </div>
-                </div>
-                <br />
-                <div id="table-wraper">
-                    <div class="for-header">
-                        <label>Cars Available</label>
-                    </div>
-                    <div class="box">
+                    <div class="car-table">
                         <table>
                             <tr>
-                                <th>S.No.</th>
+                                <th>SELECT</th>
                                 <th>CAR NAME</th>
                                 <th>CLASS</th>
                                 <th>YEAR</th>
@@ -308,17 +314,9 @@
                     </div>
                 </div>
             </div>
-            <div id="Employee" class="tabcontent">
-                <h3>Employee Details</h3>
-                <p>Employee details to be loaded</p>
-            </div>
+        </div>
 
-            <div id="Vendor" class="tabcontent">
-                <h3>Vednor Details</h3>
-                <p>Vendor details to be loaded.</p>
-            </div>
-            
-        </section>
+    </section>
     <!-- Call to action Start -->
     <section id="call-to-action">
         <div class="container">
@@ -346,22 +344,5 @@
             </div>
         </div>
     </footer>
-        @*<script>
-function openDetails(evt, details) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(details).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-        </script>*@
-
-    
 </body>
 </html>

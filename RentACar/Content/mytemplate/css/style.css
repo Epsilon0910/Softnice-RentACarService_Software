@@ -57,8 +57,9 @@ a:active {
 	Header Start 
 --*/
 header {
-  background: #fff;
-  padding: 20px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: #FFF;
+    padding: 20px 0;
 }
 header .navbar {
   margin-bottom: 0px;
