@@ -1,0 +1,247 @@
+﻿
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rent a Car-Details</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- CSS -->
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/bootstrap.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/font-awesome.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/style.css">
+
+    <!-- Js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: "Open Sans Condensed", sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: black;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            border: 1px solid grey;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #wraper-availability {
+            margin: auto;
+            width: 100%;
+            float: left;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+
+        .availability-box {
+            background-color: #eeddff;
+            padding: 15px;
+        }
+
+        vr {
+            display: inline-block;
+            width: 1px;
+            background-color: lightgrey;
+            margin-left: 1%;
+            margin-right: 1%;
+            height: 300px;
+        }
+
+        #table-wraper {
+            width: 67%;
+            display: inline-block;
+        }
+
+        .box {
+            background-color: #eeddff;
+            padding: 15px;
+            overflow-x: auto;
+        }
+
+        .section-header {
+            padding: 10px 10px;
+            background-color: #1db954;
+            color: white;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-size: 17px;
+        }
+
+        .for-header {
+            padding: 5px 10px;
+            background-color: lightgrey;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 15px;
+        }
+
+        .row-fluid {
+            margin: 5px 0;
+        }
+
+            .row-fluid label {
+                margin-right: 5px;
+                letter-spacing: 1px;
+                width: 100px;
+            }
+
+            .row-fluid select {
+                width: 50%;
+            }
+
+            .row-fluid input[type=date] {
+                width: 13%;
+                height: 23px;
+            }
+
+        .custom-button {
+            padding: 5px 25px;
+            margin: 4px 2px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #1db954;
+            color: white;
+            border: 2px solid #1db954;
+            border-radius: 5px;
+            letter-spacing: 1px;
+        }
+
+            .custom-button:hover {
+                background-color: lightgrey;
+                color: black;
+            }
+    </style>
+</head>
+<body>
+    <!-- Header Start -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- header Nav Start -->
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+
+
+
+                                <img src="~/Content/mytemplate/img/logo.png" />
+
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right">
+
+                                    <li>@Html.ActionLink("Filters", "Landing")</li>
+                                    <li>@Html.ActionLink("Book a Car", "Book")</li>
+                                    <li>@Html.ActionLink("Logout", "Login")</li>
+
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header><!-- header close -->
+
+    <section id="contact-form" class="container">
+        <div class="section-header">
+            Company Name
+        </div>
+        <div id="wraper-availability">
+            <div class="for-header">
+                Ticket
+            </div>
+            <div class="availability-box" >
+                <div class="row-fluid">
+                    <div class="col-sm-3 col-md-3">
+                        <label>Customer Id :</label>
+                    </div>
+                    <div class="row-fluid">
+                        <label> Customer Name :</label>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="row-fluid col-sm-3 col-md-3">
+                        <label> Car Id :</label>
+                    </div>
+                    <div class="row-fluid">
+                        <label> Registration Number :</label>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="col-sm-3 col-md-3">
+                        <label for="">From :</label>
+                    </div>
+                    <div class="row-fluid">
+                        <label> To :</label>
+                    </div>
+                    </div>                
+                <div class="row-fluid">
+                    <div class="col-sm-3 col-md-3">
+                        <label>Payment :</label>
+                    </div>
+                    <div class="row-fluid">
+                        <label> Date of Issue :</label>
+                    </div>
+                </div>
+
+
+
+                    <div>
+                        <div style="float:left;">
+                            <input type="button" class="custom-button" value="Generate Ticket" />
+                        </div>
+                        <div align="right">
+                            <input type="button" class="custom-button" value="Print" />
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+    
+    <!-- footer Start -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-manu">
+
+                    </div>
+                    <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">SoftNice</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
