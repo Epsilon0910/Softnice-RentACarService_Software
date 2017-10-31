@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿ <!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8">
@@ -53,7 +53,10 @@
         .row-fluid {
             margin: 5px 0;
         }
-
+       .row-fluid select {
+            width: 66%;
+        }
+       
         .custom-button {
             padding: 5px 25px;
             margin: 5px 5px;
@@ -71,6 +74,7 @@
                 background-color: #e1dcd6;
                 color: black;
             }
+          
         /*.main-wrapper {
             border: 1px solid black;
             border-radius: 5px;
@@ -88,7 +92,7 @@
         }
 
         .emp-detail-fields {
-            margin: 5px 0px;
+            margin: 19px 0px;
         }
 
         .field-item {
@@ -130,6 +134,8 @@
         tr:nth-child(even) {
             background-color: #f2f2f2
         }
+        .required-field::after
+         {            content: "*";            color: red;        }
     </style>
 </head>
 
@@ -171,19 +177,50 @@
             <div class="main">
                 <div class="emp-detail-fields-wrapper">
                     <div class="emp-detail-fields-header sub-header">
-                        <strong>Employee Detail Fields</strong>
+                        <strong>ADD EMPLOYEE</strong>
                     </div>
                     <div class="emp-detail-fields container-fluid">
                         <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">                               
+                                    <label> Department:</label>
+                                </div>
                             <div class="col-sm-3 col-md-3">
-                                <label>Employee Code</label>
+                                <select>
+                                    <option>--Select--</option>
+                                    <option>Hatchback</option>
+                                    <option>Sedan</option>
+                                    <option>MPV</option>
+                                    <option>SUV</option>
+                                </select>
                             </div>
                             <div class="col-sm-3 col-md-3">
-                                <input type="text" placeholder="" />
+                                <label>Bank Name:</label>
                             </div>
-
                             <div class="col-sm-3 col-md-3">
-                                <label>Vendor Name</label>
+                                <select>
+                                    <option>--Select--</option>
+                                    <option>Hatchback</option>
+                                    <option>Sedan</option>
+                                    <option>MPV</option>
+                                    <option>SUV</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>Designation:</label>
+                                </div>
+                            <div class="col-sm-3 col-md-3">
+                                <select>
+                                    <option>--Select--</option>
+                                    <option>Hatchback</option>
+                                    <option>Sedan</option>
+                                    <option>MPV</option>
+                                    <option>SUV</option>
+                                </select>
+                            </div>                          
+                            <div class="col-sm-3 col-md-3">
+                                <label>Bank Branch:</label>
                             </div>
                             <div class="col-sm-3 col-md-3">
                                 <input type="text" placeholder="" />
@@ -191,14 +228,14 @@
                         </div>
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
-                                <label>Car Name</label>
+                                <label>Name:</label>
                             </div>
                             <div class="col-sm-3 col-md-3">
                                 <input type="text" placeholder="" />
                             </div>
 
                             <div class="col-sm-3 col-md-3">
-                                <label>Manufacturer Name</label>
+                                <label>Bank Code:</label>
                             </div>
                             <div class="col-sm-3 col-md-3">
                                 <input type="text" placeholder="" />
@@ -206,14 +243,14 @@
                         </div>
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
-                                <label>Engine Number</label>
+                                <label>Email:</label>
                             </div>
                             <div class="col-sm-3 col-md-3">
                                 <input type="text" placeholder="" />
                             </div>
 
                             <div class="col-sm-3 col-md-3">
-                                <label>Chasis Number</label>
+                                <label class="required-field">Account Number</label>
                             </div>
                             <div class="col-sm-3 col-md-3">
                                 <input type="text" placeholder="" />
@@ -221,14 +258,14 @@
                         </div>
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
-                                <label>Launch Year</label>
+                                <label class="required-field">Phone number</label>
                             </div>
                             <div class="col-sm-3 col-md-3">
                                 <input type="text" placeholder="" />
                             </div>
 
                             <div class="col-sm-3 col-md-3">
-                                <label>Color</label>
+                                <label class="required-field">IFSC code</label>
                             </div>
                             <div class="col-sm-3 col-md-3">
                                 <input type="text" placeholder="" />
@@ -236,33 +273,62 @@
                         </div>
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
-                                <label>AC/NON-AC</label>
+                                <label class="required-field">Address 1</label>
                             </div>
                             <div class="col-sm-3 col-md-3">
                                 <input type="text" placeholder="" />
                             </div>
 
                             <div class="col-sm-3 col-md-3">
-                                <label>Active</label>
+                                <label class="required-field">Adhar Card Number</label>
                             </div>
                             <div class="col-sm-3 col-md-3">
                                 <input type="text" placeholder="" />
                             </div>
                         </div>
-                        <div class="row-fluid">
-                            <button class="custom-button">Submit</button>
-                            <button class="custom-button">Reset</button>
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>Address 2:</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="text" placeholder="" />
+                            </div>
+                            </div>
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label class="required-field">Active</label>
+                               </div>
+                            <div class="col-sm-3 col-md-3">
+                                <select>
+                                    <option>--Select--</option>
+                                    <option>Active</option>
+                                    <option>Inactive</option>
+                                    
+                                </select>
+                            </div>
+                            </div>
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>Created Date:</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="date" placeholder="" />
+                            </div>
                         </div>
-                    </div>
+                            <div class="row-fluid" align="right">
+                                <button class="custom-button">Save</button>
+                                <button class="custom-button">Reset</button>
+                            </div>
+                        </div>
                 </div>
 
                 <div class="car-table-wrapper">
                     <div class="car-table-header sub-header">
                         <div class="header-title">
-                            <strong>CARS LIST</strong>
+                            <strong>EMPLOYEES LIST</strong>
                         </div>
                         <div class="search">
-                            <input type="search" value="" placeholder="Search" />
+                            <input type="search" value="" placeholder="Search by name" />
                             <a href="#"><span class="glyphicon glyphicon-search"></span></a>
                         </div>
                     </div>
@@ -270,14 +336,15 @@
                         <table>
                             <tr>
                                 <th></th>
-                                <th>CAR NAME</th>
-                                <th>CLASS</th>
-                                <th>YEAR</th>
-                                <th>BOOKING STATUS</th>
-                                <th>START DATE</th>
-                                <th>END DATE</th>
-                                <th>PAYMENT STATUS</th>
-                                <th>PICKUP</th>
+                                <th>EMPLOYEE CODE</th>
+                                <th>NAME</th>
+                                <th>PHONE NUMBER </th>
+                                <th>EMAIL</th>                            
+                                <th>DESIGNATION</th>
+                                <th>DEPARTMENT</th>
+                                <th>ADDRESS</th>
+                                <th>ACTIVE</th>
+                                <th>CREATED DATE</th>                               
                             </tr>
                             <tr>
                                 <td>
@@ -296,23 +363,6 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -332,6 +382,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td>
@@ -342,6 +393,26 @@
                                         <span class="glyphicon glyphicon-trash"></span>
                                     </a>
                                 </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </td>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
