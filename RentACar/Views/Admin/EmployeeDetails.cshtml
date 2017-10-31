@@ -10,7 +10,7 @@
     <!-- CSS -->
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" />
-    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/font-awesome.min.css">
     <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/style.css">
 
@@ -18,7 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
     <style>
-        .main-header {
+        /*.main-header {
             padding: 5px;
             background-color: #a09d93;
             border-bottom: 1px solid black;
@@ -30,14 +30,24 @@
             letter-spacing: 2px;
             font-size: 20px;
             height: 40px;
-        }
-
+        }*/
         .sub-header {
             padding: 5px 10px;
             background-color: #bab6ab;
             font-weight: 500;
             letter-spacing: 1px;
             font-size: 15px;
+            height: 37px;
+        }
+
+        .header-title {
+            display: inline-block;
+        }
+
+        .search {
+            display: inline-block;
+            float: right;
+            /*background-color:#bab6ab;*/
         }
 
         .row-fluid {
@@ -57,17 +67,15 @@
             letter-spacing: 1px;
         }
 
-        .custom-button:hover {
-            background-color: #e1dcd6;
-            color: black;
-        }
-
-        .main-wrapper {
+            .custom-button:hover {
+                background-color: #e1dcd6;
+                color: black;
+            }
+        /*.main-wrapper {
             border: 1px solid black;
             border-radius: 5px;
             margin: 50px 0;
-        }
-
+        }*/
         .main {
             margin: 15px 5px;
         }
@@ -81,6 +89,15 @@
 
         .emp-detail-fields {
             margin: 5px 0px;
+        }
+
+        .field-item {
+            height: 26px;
+        }
+
+        .field-item select {
+            width: 162px;
+            height: 26px;
         }
 
         .car-table-wrapper {
@@ -151,9 +168,6 @@
     </header><!-- header close -->
     <section class="container">
         <div class="main-wrapper">
-            <div class="main-header">
-                Employee Detail Page
-            </div>
             <div class="main">
                 <div class="emp-detail-fields-wrapper">
                     <div class="emp-detail-fields-header sub-header">
@@ -244,12 +258,18 @@
 
                 <div class="car-table-wrapper">
                     <div class="car-table-header sub-header">
-                        <strong>Cars Available</strong>
+                        <div class="header-title">
+                            <strong>CARS LIST</strong>
+                        </div>
+                        <div class="search">
+                            <input type="search" value="" placeholder="Search" />
+                            <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+                        </div>
                     </div>
                     <div class="car-table">
                         <table>
                             <tr>
-                                <th>SELECT</th>
+                                <th></th>
                                 <th>CAR NAME</th>
                                 <th>CLASS</th>
                                 <th>YEAR</th>
@@ -260,7 +280,14 @@
                                 <th>PICKUP</th>
                             </tr>
                             <tr>
-                                <td><input type="checkbox"></td>
+                                <td>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -271,7 +298,14 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox"></td>
+                                <td>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -282,7 +316,14 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox"></td>
+                                <td>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -293,7 +334,14 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox"></td>
+                                <td>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -308,7 +356,6 @@
                 </div>
             </div>
         </div>
-
     </section>
     <!-- Call to action Start -->
     <section id="call-to-action">
