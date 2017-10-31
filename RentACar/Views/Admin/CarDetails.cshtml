@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/font-awesome.min.css">
     <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/style.css">
-    
+
     <!-- Js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
@@ -39,17 +39,21 @@
             font-size: 15px;
             height: 37px;
         }
+
         .header-title {
             display: inline-block;
         }
+
         .search {
             display: inline-block;
             float: right;
             /*background-color:#bab6ab;*/
         }
+
         .row-fluid {
             margin: 5px 0;
         }
+
         .custom-button {
             padding: 5px 25px;
             margin: 5px 5px;
@@ -62,34 +66,40 @@
             border-radius: 5px;
             letter-spacing: 1px;
         }
-        .custom-button:hover {
-            background-color: #e1dcd6;
-            color: black;
-        }
+
+            .custom-button:hover {
+                background-color: #e1dcd6;
+                color: black;
+            }
         /*.main-wrapper {
             border: 1px solid black;
             border-radius: 5px;
             margin: 50px 0;
         }*/
         .main {
-            margin: 15px 5px;
+            margin: 15px 0px;
         }
+
         .car-detail-fields-wrapper {
             border: 1px solid black;
             border-bottom: 5px solid grey;
             margin: 5px 0px;
             background-color: #e1dcd6;
         }
+
         .car-detail-fields {
             margin: 5px 0px;
         }
+
         .field-item {
             height: 26px;
         }
-        .field-item select {
-            width: 162px;
-            height: 26px;
-        }
+
+            .field-item select {
+                width: 162px;
+                height: 26px;
+            }
+
         .car-table-wrapper {
             border: 1px solid black;
             border-bottom: 5px solid grey;
@@ -97,24 +107,32 @@
             display: inline-block;
             margin: 5px 0px;
         }
+
         .car-table {
             background-color: #e1dcd6;
             padding: 15px 10px;
             overflow-x: auto;
         }
+
         table {
             border-collapse: collapse;
             border-spacing: 0;
             width: 100%;
             border: 1px solid #ddd;
         }
+
         th, td {
             border: 1px solid grey;
             text-align: left;
             padding: 8px;
         }
+
         tr:nth-child(even) {
             background-color: #f2f2f2
+        }
+
+        .asterisc {
+            color: red;
         }
     </style>
 </head>
@@ -162,39 +180,48 @@
                     <div class="car-detail-fields container-fluid">
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
-                                <label>Vendor Name</label>
+                                <label>Vendor Name<span class="asterisc">*</span> :</label>
                             </div>
-                            <div class="col-sm-3 col-md-3 field-item" >
+                            <div class="col-sm-3 col-md-3 field-item">
                                 <input type="text" placeholder="" />
                                 <a href="#"><span class="glyphicon glyphicon-plus-sign"></span>ADD</a>
                             </div>
+                            <div class="col-sm-3 col-md-3">
+                                <label>Creation Date :</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3 field-item">
+                                <input type="date" placeholder="" />
+                            </div>
 
                         </div>
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
-                                <label>Car Name</label>
+                                <label>Manufacturer Name :</label>
                             </div>
                             <div class="col-sm-3 col-md-3 field-item">
                                 <input type="text" placeholder="" />
                             </div>
-
                             <div class="col-sm-3 col-md-3">
-                                <label>Manufacturer Name</label>
+                                <label>Class<span class="asterisc">*</span> :</label>
                             </div>
                             <div class="col-sm-3 col-md-3 field-item">
-                                <input type="text" placeholder="" />
+                                <select>
+                                    <option>--SELECT--</option>
+                                    <option>MINI</option>
+                                    <option>SEDAN</option>
+                                    <option>XUV</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
-                                <label>Engine Number</label>
+                                <label>Car Name<span class="asterisc">*</span> :</label>
                             </div>
                             <div class="col-sm-3 col-md-3 field-item">
                                 <input type="text" placeholder="" />
                             </div>
-
                             <div class="col-sm-3 col-md-3">
-                                <label>Launch Year</label>
+                                <label>Launch Year<span class="asterisc">*</span> :</label>
                             </div>
                             <div class="col-sm-3 col-md-3 field-item">
                                 <select>
@@ -205,44 +232,131 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
-                                <label>Chasis Number</label>
+                                <label>Color<span class="asterisc">*</span> :</label>
                             </div>
                             <div class="col-sm-3 col-md-3 field-item">
                                 <input type="text" placeholder="" />
                             </div>
-
                             <div class="col-sm-3 col-md-3">
-                                <label>Color</label>
+                                <label>Passanger Capacity :</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3 field-item">
+                                <input type="Number" />
+                            </div>
+
+                        </div>
+
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>Fuel Type :</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3 field-item">
+                                <select>
+                                    <option>--SELECT--</option>
+                                    <option>YES</option>
+                                    <option>NO</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <label>Transmission Type :</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3 field-item">
+                                <select>
+                                    <option>--SELECT--</option>
+                                    <option>AUTOMETIC</option>
+                                    <option>SEMI-AUTOMETIC</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>Engine Number<span class="asterisc">*</span> :</label>
                             </div>
                             <div class="col-sm-3 col-md-3 field-item">
                                 <input type="text" placeholder="" />
                             </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="col-sm-6 col-md-6" style="padding-left:0;">
+                                    <div class="col-sm-4 col-md-4" style="padding:0;">
+                                        <label>AC :</label>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4" style="padding:0;">
+                                        <input type="radio" name="radio" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6" style="">
+                                    <div class="col-sm-4 col-md-4" style="padding:0;">
+                                        <label>Quantity :</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 field-item" style="">
+                                        <input type="number" style="width:70px;" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
-                                <label>AC/NON-AC</label>
+                                <label>Chasis Number<span class="asterisc">*</span> :</label>
                             </div>
-                            <div class="col-sm-3 col-md-3">
-                                <label class="radio-inline"><input type="radio" value="" name="radiotype" />AC</label>
-                                <label class="radio-inline"><input type="radio" value="" name="radiotype">NON-AC</label>
-                            </div>
-
-                            <div class="col-sm-3 col-md-3">
-                                <label>Active</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
+                            <div class="col-sm-3 col-md-3 field-item">
                                 <input type="text" placeholder="" />
                             </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="col-sm-6 col-md-6" style="padding-left:0;">
+                                    <div class="col-sm-4 col-md-4" style="padding:0;">
+                                        <label>NON-AC :</label>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4" style="padding:0;">
+                                        <input type="radio" name="radio" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6" style="">
+                                    <div class="col-sm-4 col-md-4" style="padding:0;">
+                                        <label>Quantity :</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 field-item" style="">
+                                        <input type="number" style="width:70px;" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
-                                <label>Creation Date</label>
+                                <label>Airbags :</label>
                             </div>
                             <div class="col-sm-3 col-md-3">
-                                <input type="date" placeholder="" />
+                                <div class="col-sm-4 col-md-4" style="padding:0;">
+                                    <label class="col-sm-6 col-md-6" style="padding:0;" >YES :</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
+                                </div>
+                                <div class="col-sm-4 col-md-4" style="padding:0;">
+                                    <label class="col-sm-6 col-md-6" style="padding:0;">NO :</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <label>Price :</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3 field-item">
+                                <input type="Number" />
+                            </div>
+                        </div>
+                        <div class="row row-fluid">
+                            <div class="col-sm-3 col-md-3">
+                                <label>Depreciation Rate :</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3 field-item">
+                                <input type="Number" />
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <label>Active<span class="asterisc">*</span> :</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3 field-item">
+                                <select>
+                                    <option>--SELECT--</option>
+                                    <option>YES</option>
+                                    <option>NO</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row-fluid pull-right">
@@ -251,106 +365,108 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="car-table-wrapper">
-                    <div class="car-table-header sub-header">
-                        <div class="header-title">
-                            <strong>CARS LIST</strong>
-                        </div>
-                        <div class="search">
-                            <input type="search" value="" placeholder="Search" />
-                            <a href="#"><span class="glyphicon glyphicon-search"></span></a>
-                        </div>
-                    </div>
-                    <div class="car-table">
-                        <table>
-                            <tr>
-                                <th></th>
-                                <th>CAR NAME</th>
-                                <th>CLASS</th>
-                                <th>YEAR</th>
-                                <th>BOOKING STATUS</th>
-                                <th>START DATE</th>
-                                <th>END DATE</th>
-                                <th>PAYMENT STATUS</th>
-                                <th>PICKUP</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
+            </div>
+        </div>
+
+        <div class="car-table-wrapper">
+            <div class="car-table-header sub-header">
+                <div class="header-title">
+                    <strong>CARS LIST</strong>
+                </div>
+                <div class="search">
+                    <input type="search" value="" placeholder="Search By Name" />
+                    <a href="#"><span class="glyphicon glyphicon-search"></span></a>
                 </div>
             </div>
+            <div class="car-table">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>CAR NAME</th>
+                        <th>CLASS</th>
+                        <th>YEAR</th>
+                        <th>BOOKING STATUS</th>
+                        <th>START DATE</th>
+                        <th>END DATE</th>
+                        <th>PAYMENT STATUS</th>
+                        <th>PICKUP</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </div>
         </div>
     </section>
     <!-- Call to action Start -->
