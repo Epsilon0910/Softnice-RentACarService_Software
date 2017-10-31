@@ -24,5 +24,9 @@ namespace RentACar.Controllers
         {
             return View();
         }
+        public ActionResult Logistics()
+        {
+            return View();
+        }
     }
 }
