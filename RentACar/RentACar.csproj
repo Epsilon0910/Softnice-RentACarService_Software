@@ -171,6 +171,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularControllers\BookCtrl.js" />
     <Content Include="AngularControllers\MasterCtrl.js" />
     <Content Include="AngularControllers\LandingCtrl.js" />
     <Content Include="Content\bootstrap.css" />
