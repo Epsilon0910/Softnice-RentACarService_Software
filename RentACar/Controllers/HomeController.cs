@@ -32,5 +32,9 @@ namespace RentACar.Controllers
         {
             return View();
         }
+        public ActionResult SerivceSection ()
+        {
+            return View();
+        }
     }
 }

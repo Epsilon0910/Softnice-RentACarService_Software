@@ -171,6 +171,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularControllers\MasterCtrl.js" />
+    <Content Include="AngularControllers\LandingCtrl.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\mytemplate\css\animate.css" />
@@ -221,6 +223,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\mytemplate\fonts\fontawesome-webfont.eot" />
@@ -272,6 +275,7 @@
     <Content Include="Views\Admin\VendorDetails.cshtml" />
     <Content Include="Views\Admin\Logistics.cshtml" />
     <Content Include="Views\Home\Ticket.cshtml" />
+    <Content Include="Views\Home\SerivceSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
