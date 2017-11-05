@@ -10,3 +10,8 @@
 
     $scope.Classlist = [{ Name: 'SUV', ID: '1' }, { Name: 'SEDAN', ID: '2' }, { Name: 'MINI', ID: '3' }]
 });
+
+//l.controller('LandingCtrl', function ($scope) {
+
+//    $scope.date = '';
+//});

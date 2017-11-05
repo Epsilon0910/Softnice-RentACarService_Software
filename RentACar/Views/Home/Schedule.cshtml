@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" ng-app="rentapp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +17,12 @@
     <!-- Js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>*@
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="~/AngularControllers/MasterCtrl.js"></script>
+    <script src="~/AngularControllers/OrdersCtrl.js"></script>
+   
     <style>
         body {
             font-family: "Open Sans Condensed", sans-serif;
@@ -131,7 +137,7 @@
         }
     </style>
 </head>
-<body>
+<body ng-controller="OrdersCtrl">
     <!-- Header Start -->
     <header>
         <div class="container">
@@ -171,7 +177,7 @@
         </div>
     </header><!-- header close -->
 
-   
+    <form name="ordersfrom" novalidate>
 
         <section id="contact-form" class="container">
             <div class="section-header">
@@ -183,39 +189,44 @@
                 </div>
                 <div class="availability-box">
                     <div class="row-fluid">
-                        <label> CAR TYPE:</label>
+                        <label>CLASS:</label>
                         <select>
                             <option>--Select--</option>
-                            <option>Hatchback</option>
-                            <option>Sedan</option>
-                            <option>MPV</option>
-                            <option>SUV</option>
+                            <option ng-repeat="list in ClassList" value="{{list.ID}}">{{list.Name}}</option>
                         </select>
                     </div>
                     <div class="row-fluid">
-                        <label>CAR FUEL:</label>
+                        <label>FUEL:</label>
                         <select>
                             <option>--Select--</option>
-                            <option>Petrol</option>
-                            <option>Diesel</option>
-                            <option>Gas</option>
+                            <option ng-repeat="list in FuelList" value="{{list.ID}}">{{list.Name}}</option>
+                            @*<option>Petrol</option>
+                                <option>Diesel</option>
+                                <option>Gas</option>*@
                         </select>
                     </div>
                     <div class="row-fluid">
                         <label> DURATION:</label>
-                        <select>
+                        <select name="DurationList" required >
+                       
                             <option>--Select--</option>
-                            <option>Days</option>
-                            <option>Weeks</option>
+                            <option ng-repeat="list in DurationList" value="{{list.ID}}">{{list.Name}}</option>
+                            
+                            @*<option>Days</option>
+                                <option>Weeks</option>*@
                         </select>
+                        <span data-ng-show="ordersform.$invalid">
+                            <span style="color:red" ng-show="!ordersform.DurationList.$error.required">is required</span>
+                        </span>
                     </div>
 
                     <div class="row-fluid">
                         <label>  PICK UP:</label>
                         <select>
                             <option>--Select--</option>
-                            <option>Within City</option>
-                            <option>Out Of Station</option>
+                            <option ng-repeat="list in PickupList" value="{{list.ID}}">{{list.Name}}</option>
+                            @*<option>Within City</option>
+                                <option>Out Of Station</option>*@
                         </select>
                     </div>
 
@@ -225,13 +236,14 @@
                         <label for="">TO :</label>
                         <input type="date" name="dateofbirth" required>
                     </div>
+
                     <div class="row-fluid">
                         <label>TYPE:</label>
                         <input type="radio" name="gender" value="AC">A/C
                         <input type="radio" name="gender" value="NON">NON A/C
                     </div>
                     <div class="row-fluid" align="center">
-                        <input type="button" class="custom-button" value="SUBMIT"  onclick="location.href='@Url.Action("Landing", "Home")'"/>
+                        <input type="button" class="custom-button" value="SUBMIT" ng-click="checkselection()" @*onclick="location.href='@Url.Action("Landing", "Home")'"*@ />
                         <input type="button" class="custom-button" value="ESTIMATE" />
                     </div>
                 </div>
@@ -315,7 +327,7 @@
                 </div>
             </div>
         </section>
-        
+    </form>
         <!-- Call to action Start -->
         <section id="call-to-action">
             <div class="container">
