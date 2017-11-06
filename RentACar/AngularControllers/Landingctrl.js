@@ -9,6 +9,8 @@
     $scope.Namelist = [{ Name: 'BMW Z1', ID: '1' }, { Name: 'Zonda', ID: '2' }, { Name: 'Audi R8', ID: '3' }]
 
     $scope.Classlist = [{ Name: 'SUV', ID: '1' }, { Name: 'SEDAN', ID: '2' }, { Name: 'MINI', ID: '3' }]
+    
+    
 });
 
 //l.controller('LandingCtrl', function ($scope) {
