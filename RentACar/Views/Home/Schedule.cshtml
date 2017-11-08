@@ -20,8 +20,8 @@
     @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>*@
     <script src="~/Scripts/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="~/AngularControllers/MasterCtrl.js"></script>
-    <script src="~/AngularControllers/OrdersCtrl.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+ 
    
     <style>
         body {
@@ -59,20 +59,27 @@
         .availability-box {
             background-color: #eeddff;
             padding: 15px;
+            width:120%;
+            
+
         }
 
         vr {
             display: inline-block;
             width: 1px;
             background-color: lightgrey;
-            margin-left: 1%;
+            margin-left: 7%;
             margin-right: 1%;
             height: 300px;
         }
 
         #table-wraper {
-            width: 67%;
+          
             display: inline-block;
+            width:61%;
+            margin-left:3px;
+            margin-right: 3px;
+            
         }
 
         .box {
@@ -97,6 +104,16 @@
             font-weight: 400;
             letter-spacing: 1px;
             font-size: 15px;
+            width:408px;
+        }
+
+        .for-header1 {
+            padding: 5px 10px;
+            background-color: lightgrey;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 15px;
+            width: 695px;
         }
 
         .row-fluid {
@@ -134,6 +151,9 @@
         .custom-button:hover {
             background-color: lightgrey;
             color:black;
+        }
+        .color{
+            color:red;
         }
     </style>
 </head>
@@ -177,8 +197,7 @@
         </div>
     </header><!-- header close -->
 
-    <form name="ordersfrom" novalidate>
-
+    <form name="ordersform" ng-submit="ordersform.$valid && add()" novalidate>
         <section id="contact-form" class="container">
             <div class="section-header">
                 ORDERS
@@ -190,67 +209,60 @@
                 <div class="availability-box">
                     <div class="row-fluid">
                         <label>CLASS:</label>
-                        <select>
-                            <option>--Select--</option>
-                            <option ng-repeat="list in ClassList" value="{{list.ID}}">{{list.Name}}</option>
+                        <select name="Carclass" ng-model="Schedule.CarClass" ng-options="carclass.ID as carclass.Name for carclass in ClassList" required>
+                            <option value="">--Select--</option>
                         </select>
+                        <span ng-show="submitted == true && ordersform.Carclass.$error.required" class="color">Please select</span>
                     </div>
+
                     <div class="row-fluid">
                         <label>FUEL:</label>
-                        <select>
-                            <option>--Select--</option>
-                            <option ng-repeat="list in FuelList" value="{{list.ID}}">{{list.Name}}</option>
-                            @*<option>Petrol</option>
-                                <option>Diesel</option>
-                                <option>Gas</option>*@
+                        <select name="CarFuel" ng-model="class2" ng-options="fuellist.ID as fuellist.Name for fuellist in FuelList"  required>
+                            <option value="">--Select--</option>
                         </select>
+                        <span ng-show="submitted == true && ordersform.CarFuel.$error.required" class="color">Please select</span>
                     </div>
+        
                     <div class="row-fluid">
                         <label> DURATION:</label>
-                        <select name="DurationList" required >
-                       
-                            <option>--Select--</option>
-                            <option ng-repeat="list in DurationList" value="{{list.ID}}">{{list.Name}}</option>
-                            
-                            @*<option>Days</option>
-                                <option>Weeks</option>*@
+                        <select name="CarDuration" ng-model="class3" ng-options="durationlist.ID as durationlist.Name for durationlist in DurationList" required>
+                            <option value="">--Select--</option>
                         </select>
-                        <span data-ng-show="ordersform.$invalid">
-                            <span style="color:red" ng-show="!ordersform.DurationList.$error.required">is required</span>
-                        </span>
+                        <span ng-show="submitted == true && ordersform.CarDuration.$error.required" class="color">Please select</span>                     
                     </div>
 
                     <div class="row-fluid">
                         <label>  PICK UP:</label>
-                        <select>
-                            <option>--Select--</option>
-                            <option ng-repeat="list in PickupList" value="{{list.ID}}">{{list.Name}}</option>
-                            @*<option>Within City</option>
-                                <option>Out Of Station</option>*@
+                        <select name="CarPickup" ng-model="class4" ng-options="pickuplist.ID as pickuplist.Name for pickuplist in PickupList " required>
+                            <option value="">--Select--</option>
                         </select>
+                        <span ng-show="submitted == true && ordersform.CarPickup.$error.required" class="color"> Please select </span>
                     </div>
 
                     <div class="row-fluid">
                         <label for="">FROM :</label>
-                        <input type="date" name="dateofbirth" required>
+                        <input class="datepicker" ng-model="class5" type="date" name="dateofbirth" required>
+                        <span ng-show="submitted == true && ordersform.dateofbirth.$error.required" class="color">Please select</span><br>
                         <label for="">TO :</label>
-                        <input type="date" name="dateofbirth" required>
+                        <input class="datepicker" ng-model="class6" type="date" name="dateofbirthto" required>
+                        <span ng-show="submitted == true && ordersform.dateofbirthto.$error.required" class="color" >Please select</span>
                     </div>
 
                     <div class="row-fluid">
-                        <label>TYPE:</label>
-                        <input type="radio" name="gender" value="AC">A/C
-                        <input type="radio" name="gender" value="NON">NON A/C
+                        TYPE:
+                        <label ng-repeat= "cartype in TypeList " > 
+                        <input type="radio" name="CarType" ng-model="class7" ng-value=""/> {{cartype}}</label>
                     </div>
+                    
                     <div class="row-fluid" align="center">
-                        <input type="button" class="custom-button" value="SUBMIT" ng-click="checkselection()" @*onclick="location.href='@Url.Action("Landing", "Home")'"*@ />
-                        <input type="button" class="custom-button" value="ESTIMATE" />
+                        <input type="submit" class="custom-button" value="Submit" ng-click="submitted=true"/>
+                        <input type="button" class="custom-button" value="ESTIMATE" ng-click="submitted=true"/>
                     </div>
                 </div>
             </div>
             <vr></vr>
-            <div id="table-wraper">
-                <div class="for-header">
+            <div id="table-wraper" >
+                <div class="for-header1">
                     CARS AVAILABLE
                 </div>
                 <div class="box">
@@ -359,3 +371,5 @@
 
 </body>
 </html>
+<script src="~/AngularControllers/MasterCtrl.js"></script>
+<script src="~/AngularControllers/OrdersCtrl.js"></script>

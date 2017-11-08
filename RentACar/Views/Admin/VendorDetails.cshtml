@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" ng-app="rentapp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +17,10 @@
     <!-- Js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>*@
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
     <style>
         /*.main-header {
             padding: 5px;
@@ -134,10 +138,13 @@
         tr:nth-child(even) {
             background-color: #f2f2f2
         }
+        .color {
+            color: red;
+        }
     </style>
 </head>
 
-<body>
+<body ng-controller="VendorCtrl">
     <!-- Header Start -->
     <header>
         <div class="container">
@@ -170,235 +177,248 @@
             </div>
         </div>
     </header><!-- header close -->
-    <section class="container">
-        <div class="main-wrapper">
-            <div class="main">
-                <div class="vendor-detail-fields-wrapper">
-                    <div class="vendor-detail-fields-header sub-header">
-                        <strong>VENDOR DETAIL</strong>
-                    </div>
-                    <div class="vendor-detail-fields container-fluid">
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label class=" required-field">Supplier Name</label>
+    <form name="vendorsform">
+        <section class="container">
+            <div class="main-wrapper">
+                <div class="main">
+                    <div class="vendor-detail-fields-wrapper">
+                        <div class="vendor-detail-fields-header sub-header">
+                            <strong>VENDOR DETAIL</strong>
+                        </div>
+                        <div class="vendor-detail-fields container-fluid">
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label class=" required-field">Supplier Name</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="text" placeholder="" name="SupplierName" ng-model="VendorDetail.SupplierName"  required/>
+                                    <span ng-show="submitted == true && vendorsform.SupplierName.$error.required" class="color">Please fill</span>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <label class=" required-field">Contact Person</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="text" placeholder=""  name="ContactPerson" ng-model="VendorDetail.ContactPerson" required />
+                                    <span ng-show="submitted == true && vendorsform.ContactPerson.$error.required"class="color">Please fill</span>
+                                </div>
                             </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <input type="text" placeholder="" />
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label class=" required-field">Supplier Email</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="text" placeholder="" name="SupplierEmail" ng-model="VendorDetail.SupplierEmail" required  />
+                                    <span ng-show="submitted == true && vendorsform.SupplierEmail.$error.required" class="color">Please fill</span>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <label class=" required-field">Phone Number</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <select ng-model="VendorDetail.CountrycodeList" ng-options="countrycodelist.ID as countrycodelist.Name for countrycodelist in CountrycodeList" name="CountryList" style="width:23%; color:green;" required>
+                                        <option value=""  >+91</option>
+                                    </select>
+                                    <input type="text" placeholder="" name="PhoneNumber"  ng-model="VendorDetail.PhoneNumber" required style="width:42%; color:green;"  />
+                                    <span ng-show="submitted == true && vendorsform.PhoneNumber.$error.required"  class="color">Please fill</span>
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label class=" required-field">Vendor Code</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="text" placeholder="" name="VendorCode"ng-model="VendorDetail.VendorCode" required  />
+                                    <span ng-show="submitted == true && vendorsform.VendorCode.$error.required" class="color">Please fill</span>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Alternate Number</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="text" placeholder="" name="AlternateNumber" ng-model="VendorDetail.AlternateNumber"  />
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Country</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <select  ng-model="VendorDetail.Country" ng-options="countrylist.ID as countrylist.Name for countrylist in CountryList" name="CountryList" required >
+                                        <option value="">--SELECT--</option>
+                                 
+                                    </select>
+                                    <span ng-show="submitted == true && vendorsform.CountryList.$error.required" class="color">Please fill</span>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <label class=" required-field">Address Line 1</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <textarea rows="1" cols="20" name="Address" ng-model="VendorDetail.AddressLine1" required ></textarea>
+                                    <span ng-show="submitted == true && vendorsform.Address.$error"class="color">Please fill</span>
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>State</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <select  ng-model="VendorDetail.State" ng-options="statelist.ID as statelist.Name for statelist in StateList" name="StateList" required >
+                                        <option value="">--SELECT--</option>
+                                       
+                                    </select>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Address Line 2</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <textarea rows="1" cols="20" name="AddressLine2"  ng-model="VendorDetail.AddressLine2"></textarea>
+                                    
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>ZIP Code</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="text" placeholder="" name="ZIPCode"  ng-model="VendorDetail.ZIPCode" />
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <label class=" required-field">Date Added</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="date"  name="Date" ng-model="VendorDetail.DateAdded"  required>
+                                    <span ng-show="submitted == true && vendorsform.Date.$error.required" class="color">Please fill</span>
+                                </div>
                             </div>
 
-                            <div class="col-sm-3 col-md-3">
-                                <label class=" required-field">Contact Person</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <input type="text" placeholder="" required />
-                            </div>
-                        </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label class=" required-field">Supplier Email</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <input type="text" placeholder="" />
-                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label class=" required-field">Status</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <select  ng-model="VendorDetail.Status" ng-options="statuslist.ID as statuslist.Name for statuslist in StatusList" name="StatusList" required >
+                                        <option value="" >--SELECT--</option>
+                                    </select>
+                                    <span ng-show="submitted == true && vendorsform.StatusList.$error.required"  class="color">Please fill</span>
+                                </div>
 
-                            <div class="col-sm-3 col-md-3">
-                                <label class=" required-field">Phone Number</label>
                             </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <input type="text" placeholder="" required />
+                            <div class="row-fluid pull-right">
+                                <input type="submit" class="custom-button" value="Next" ng-click="submitted=true" />
+                                <input type="button" class="custom-button" value="Reset" ng-click="Reset() "/>
                             </div>
                         </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label class=" required-field">Vendor Code</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <input type="text" placeholder="" />
-                            </div>
+                   
 
-                            <div class="col-sm-3 col-md-3">
-                                <label >Alternate Number</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <input type="text" placeholder="" required />
-                            </div>
-                        </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label>Country</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <select>
-                                    <option>--SELECT--</option>
-                                    <option>India</option>
-                                    <option>Sri Lanka</option>
-                                </select>
-                            </div>
-
-                            <div class="col-sm-3 col-md-3">
-                                <label class=" required-field">Address Line 1</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <textarea rows="1" cols="20"></textarea>
-                            </div>
-                        </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label>State</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <select >
-                                    <option>--SELECT--</option>
-                                    <option>MP</option>
-                                    <option>UP</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <label>Address Line 2</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <textarea rows="1" cols="20"></textarea>
-                            </div>
-                        </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label>ZIP Code</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <input type="text" placeholder="" />
-                            </div>
-                    
-                            <div class="col-sm-3 col-md-3">
-                                <label class=" required-field">Date Added</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item" >
-                               <input type="date" name="dateofbirth" required>
-                            </div>
                         </div>
 
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label class=" required-field">Status</label>
+                    <div class="car-table-wrapper">
+                        <div class="car-table-header sub-header">
+                            <div class="header-title">
+                                <strong>VENDOR LIST</strong>
                             </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <select>
-                                    <option>--SELECT--</option>
-                                    <option>Active</option>
-                                    <option>Inactive</option>
-                                </select>
+                            <div class="search">
+                                <input type="search" value="" placeholder="Search" />
+                                <a href="#"><span class="glyphicon glyphicon-search"></span></a>
                             </div>
-                         
                         </div>
-                        <div class="row-fluid pull-right">
-                            <button class="custom-button">Next</button>
-                            <button class="custom-button">Reset</button>
-                        </div>
-                    </div>
-                </div>
+                        <div class="car-table">
+                            <table>
+                                <tr>
+                                    <th></th>
+                                    <th>SUPPLIER NAME</th>
+                                    <th>SUPPLIER EMAIL</th>
+                                    <th>VENDOR CODE</th>
+                                    <th>CONTACT PERSON</th>
+                                    <th>DATE ADDED</th>
+                                    <th>STATUS</th>
+                                    <th>NUMBER OF CARS</th>
+                                    <th>PHONE NUMBER</th>
 
-                <div class="car-table-wrapper">
-                    <div class="car-table-header sub-header">
-                        <div class="header-title">
-                            <strong>VENDOR LIST</strong>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </a>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </a>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </a>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </a>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </a>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </a>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </a>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </a>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
                         </div>
-                        <div class="search">
-                            <input type="search" value=""  placeholder="Search" />
-                            <a href="#"><span class="glyphicon glyphicon-search"></span></a>
-                        </div>
-                    </div>
-                    <div class="car-table">
-                        <table>
-                            <tr>
-                                <th></th>
-                                <th>SUPPLIER NAME</th>
-                                <th>SUPPLIER EMAIL</th>
-                                <th>VENDOR CODE</th>
-                                <th>CONTACT PERSON</th>
-                                <th>DATE ADDED</th>
-                                <th>STATUS</th>
-                                <th>NUMBER OF CARS</th>
-                                <th>PHONE NUMBER</th>
-                               
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </section>
+        </section>
+    </form>
     <!-- Call to action Start -->
     <section id="call-to-action">
         <div class="container">
@@ -428,3 +448,5 @@
     </footer>
 </body>
 </html>
+<script src="~/AngularControllers/MasterCtrl.js"></script>
+<script src="~/AngularControllers/VendorCtrl.js"></script>
