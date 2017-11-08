@@ -24,6 +24,7 @@
 }    
 
     $scope.Reset = function () {
+        $scope.submitted = false;
         $scope.empDetail = [];
         bankbranch:'',
         Email1; '',
