@@ -24,7 +24,7 @@
         TO: ''
     }
     $scope.showalertmessage = function () {
-        if ($scope.yea == undefined && $scope.lan.Namelist == undefined && $scope.lan.Classlist == undefined && $scope.lan.makelist == undefined && $scope.lan.FROM == undefined && $scope.lan.TO == undefined)
+        if ($scope.lan.yearlist == undefined && $scope.lan.Namelist == undefined && $scope.lan.Classlist == undefined && $scope.lan.makelist == undefined && $scope.lan.FROM == undefined && $scope.lan.TO == undefined)
             alert('Please Enter something')
     }
 });
