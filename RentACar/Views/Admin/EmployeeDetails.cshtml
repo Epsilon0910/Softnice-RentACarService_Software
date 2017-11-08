@@ -1,5 +1,5 @@
 ﻿ <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" ng-app="rentapp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,10 +13,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/font-awesome.min.css">
     <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/style.css">
-
+    
     <!-- Js -->
+    <script src="~/Scripts/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+   
     <style>
         /*.main-header {
             padding: 5px;
@@ -95,12 +98,12 @@
             margin: 19px 0px;
         }
 
-        .field-item {
+        .field-item1 {
             height: 26px;
         }
 
-        .field-item select {
-            width: 162px;
+        .field-item1 select {
+            width: 177px;
             height: 26px;
         }
 
@@ -139,7 +142,7 @@
     </style>
 </head>
 
-<body>
+<body ng-controller="EmployeeDetailsCtrl">
     <!-- Header Start -->
     <header>
         <div class="container">
@@ -172,288 +175,324 @@
             </div>
         </div>
     </header><!-- header close -->
-    <section class="container">
-        <div class="main-wrapper">
-            <div class="main">
-                <div class="emp-detail-fields-wrapper">
-                    <div class="emp-detail-fields-header sub-header">
-                        <strong>ADD EMPLOYEE</strong>
-                    </div>
-                    <div class="emp-detail-fields container-fluid">
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">                               
+    <form name="employeedetailsform" ng-submit="employeedetailsform.$valid && add()" novalidate>
+        <section class="container">
+            <div class="main-wrapper">
+                <div class="main">
+                    <div class="emp-detail-fields-wrapper">
+                        <div class="emp-detail-fields-header sub-header">
+                            <strong>ADD EMPLOYEE</strong>
+                        </div>
+                        <div class="emp-detail-fields container-fluid">
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
                                     <label> Department:</label>
                                 </div>
-                            <div class="col-sm-3 col-md-3">
-                                <select>
-                                    <option>--Select--</option>
-                                    <option>Hatchback</option>
-                                    <option>Sedan</option>
-                                    <option>MPV</option>
-                                    <option>SUV</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <label>Bank Name:</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <select>
-                                    <option>--Select--</option>
-                                    <option>Hatchback</option>
-                                    <option>Sedan</option>
-                                    <option>MPV</option>
-                                    <option>SUV</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label>Designation:</label>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <select name="de" ng-model="empDetail.Departmentlist" ng-options="D.ID as D.Name for D in Departmentlist" required>
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    <span ng-show="submitted == true && employeedetailsform.de.$error.required" style="color:red">Select it</span>
                                 </div>
-                            <div class="col-sm-3 col-md-3">
-                                <select>
-                                    <option>--Select--</option>
-                                    <option>Hatchback</option>
-                                    <option>Sedan</option>
-                                    <option>MPV</option>
-                                    <option>SUV</option>
-                                </select>
-                            </div>                          
-                            <div class="col-sm-3 col-md-3">
-                                <label>Bank Branch:</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <input type="text" placeholder="" />
-                            </div>
-                        </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label>Name:</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <input type="text" placeholder="" />
-                            </div>
 
-                            <div class="col-sm-3 col-md-3">
-                                <label>Bank Code:</label>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Bank Name:</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <select name="bankna" ng-model="empDetail.Bankname" ng-options="b.ID as b.Name for b in Bankname" required>
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    <span ng-show="submitted == true && employeedetailsform.bankna.$error.required" style="color:red">Select it</span>
+                                </div>
                             </div>
-                            <div class="col-sm-3 col-md-3">
-                                <input type="text" placeholder="" />
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Designation:</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <select name="desig" ng-model="empDetail.Designation" ng-options="desi.ID as desi.Name for desi in Designation" required>
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    <span ng-show="submitted == true && employeedetailsform.desig.$error.required" style="color:red">Select it</span>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Bank Branch:</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <input type="text" placeholder="" name="bb" ng-model="empDetail.bankbranch" required />
+                                    <span ng-show="submitted == true && employeedetailsform.bb.$error.required" style="color:red">enter it</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label>Email:</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <input type="text" placeholder="" />
-                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Name:</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <input type="text" placeholder="" name="namee" ng-model="empDetail.Names" required />
+                                    <span ng-show="submitted == true && employeedetailsform.namee.$error.required" style="color:red">enter it</span>
+                                </div>
 
-                            <div class="col-sm-3 col-md-3">
-                                <label class="required-field">Account Number</label>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Bank Code:</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                <input type="text" placeholder="" name="bc" ng-model="empDetail.BCode" required />
+                                <span ng-show="submitted == true && employeedetailsform.bc.$error.required" style="color:red">enter it</span>
                             </div>
-                            <div class="col-sm-3 col-md-3">
-                                <input type="text" placeholder="" />
                             </div>
-                        </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label class="required-field">Phone number</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <input type="text" placeholder="" />
-                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Email:</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <input type="text" placeholder="" name="mail" ng-model="empDetail.Email1" required />
+                                    <span ng-show="submitted == true && employeedetailsform.mail.$error.required" style="color:red">enter it</span>
+                                </div>
 
-                            <div class="col-sm-3 col-md-3">
-                                <label class="required-field">IFSC code</label>
+                                <div class="col-sm-3 col-md-3">
+                                    <label class="required-field">Account Number</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <input type="text" placeholder="" name="acno" ng-model="empDetail.Accno" required />
+                                    <span ng-show="submitted == true && employeedetailsform.acno.$error.required" style="color:red">enter it</span>
+                                </div>
                             </div>
-                            <div class="col-sm-3 col-md-3">
-                                <input type="text" placeholder="" />
-                            </div>
-                        </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label class="required-field">Address 1</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <input type="text" placeholder="" />
-                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label class="required-field">Phone number</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <input type="number" placeholder="" name="pn" ng-model="empDetail.Pno" required />
+                                    <span ng-show="submitted == true && employeedetailsform.pn.$error.required" style="color:red">enter it</span>
+                                </div>
 
-                            <div class="col-sm-3 col-md-3">
-                                <label class="required-field">Adhar Card Number</label>
+                                <div class="col-sm-3 col-md-3">
+                                    <label class="required-field">IFSC code</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <input type="text" placeholder="" name="ifsc" ng-model="empDetail.IFSC" required />
+                                    <span ng-show="submitted == true && employeedetailsform.ifsc.$error.required" style="color:red">enter it</span>
+                                    </div>
                             </div>
-                            <div class="col-sm-3 col-md-3">
-                                <input type="text" placeholder="" />
-                            </div>
-                        </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label>Address 2:</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <input type="text" placeholder="" />
-                            </div>
-                            </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label class="required-field">Active</label>
-                               </div>
-                            <div class="col-sm-3 col-md-3">
-                                <select>
-                                    <option>--Select--</option>
-                                    <option>Active</option>
-                                    <option>Inactive</option>
-                                    
-                                </select>
-                            </div>
-                            </div>
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label>Created Date:</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <input type="date" placeholder="" />
-                            </div>
-                        </div>
-                            <div class="row-fluid" align="right">
-                                <button class="custom-button">Save</button>
-                                <button class="custom-button">Reset</button>
-                            </div>
-                        </div>
-                </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label class="required-field">Address 1</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <input type="text" placeholder="" name="add" ng-model="empDetail.Add1" required />
+                                    <span ng-show="submitted == true && employeedetailsform.add.$error.required" style="color:red">enter it</span>
+                                </div>
 
-                <div class="car-table-wrapper">
-                    <div class="car-table-header sub-header">
-                        <div class="header-title">
-                            <strong>EMPLOYEES LIST</strong>
-                        </div>
-                        <div class="search">
-                            <input type="search" value="" placeholder="Search by name" />
-                            <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+                                <div class="col-sm-3 col-md-3">
+                                    <label class="required-field">Adhar Card Number</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <input type="text" placeholder="" name="acn" ng-model="empDetail.Aadhar" required />
+                                    <span ng-show="submitted == true && employeedetailsform.acn.$error.required" style="color:red">enter it</span>
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Address 2:</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <input type="text" placeholder="" name="add1" ng-model="empDetail.Add2" required />
+                                    <span ng-show="submitted == true && employeedetailsform.add1.$error.required" style="color:red">enter it</span>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <label class="required-field">SSN Number</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <input type="text" placeholder="" name="ssno" ng-model="empDetail.SSN" required />
+                                    <span ng-show="submitted == true && employeedetailsform.ssno.$error.required" style="color:red">enter it</span>
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label class="required-field">Active</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <select name="acti" ng-model="empDetail.Active" ng-options="ac.ID as ac.Name for ac in Active" required>
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    <span ng-show="submitted == true && employeedetailsform.acti.$error.required" style="color:red">Select it</span>
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Created Date:</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item1">
+                                    <input type="date" placeholder="" name="cd" ng-model="empDetail.Createddate" required style="width:179px;" />
+                                    <span ng-show="submitted == true && employeedetailsform.cd.$error.required" style="color:red">enter it</span>
+                                </div>
+                            </div>
+                            <div class="row-fluid pull-right">
+                                <input type="button" class="custom-button" value="Save" ng-click="submitted=true" />
+                                <input type="button" class="custom-button" value="Reset" ng-click="Reset()"/>
+                                @*<button class="custom-button" ng-click="resetForm()" value="reset">Reset</button>*@
+                            </div>
                         </div>
                     </div>
-                    <div class="car-table">
-                        <table>
-                            <tr>
-                                <th></th>
-                                <th>EMPLOYEE CODE</th>
-                                <th>NAME</th>
-                                <th>PHONE NUMBER </th>
-                                <th>EMAIL</th>                            
-                                <th>DESIGNATION</th>
-                                <th>DEPARTMENT</th>
-                                <th>ADDRESS</th>
-                                <th>ACTIVE</th>
-                                <th>CREATED DATE</th>                               
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                    <a href="#">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
+
+                    <div class="car-table-wrapper">
+                        <div class="car-table-header sub-header">
+                            <div class="header-title">
+                                <strong>EMPLOYEES LIST</strong>
+                            </div>
+                            <div class="search">
+                                <input type="search" value="" placeholder="Search by name" />
+                                <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+                            </div>
+                        </div>
+                        <div class="car-table">
+                            <table>
+                                <tr>
+                                    <th></th>
+                                    <th>EMPLOYEE CODE</th>
+                                    <th>NAME</th>
+                                    <th>PHONE NUMBER </th>
+                                    <th>EMAIL</th>
+                                    <th>DESIGNATION</th>
+                                    <th>DEPARTMENT</th>
+                                    <th>ADDRESS</th>
+                                    <th>ACTIVE</th>
+                                    <th>CREATED DATE</th>
+                                    <th>IFSC CODE</th>
+                                    <th>BANK NAME</th>
+                                    <th>ACCOUNT NUMBER</th>
+                                    <th>ADHAR CARD NO.</th>
+                                    <th>BANK CODE</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </a>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </a>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </a>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </a>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </a>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </a>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td><td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </a>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </a>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Call to action Start -->
-    <section id="call-to-action">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <h2>We design delightful digital experiences.</h2>
-                        <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+        </section></form>
+        <!-- Call to action Start -->
+        <section id="call-to-action">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <h2>We design delightful digital experiences.</h2>
+                            <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- footer Start -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="footer-manu">
+        </section>
+        <!-- footer Start -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-manu">
 
+                        </div>
+                        <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">SoftNice</a>.</p>
                     </div>
-                    <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">SoftNice</a>.</p>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 </body>
 </html>
+<script src="~/AngularControllers/MasterCtrl.js"></script>
+<script src="~/AngularControllers/EmployeeDetailsCtrl.js"></script>
