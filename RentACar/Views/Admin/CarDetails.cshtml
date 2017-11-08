@@ -371,7 +371,7 @@
                                     <label>Active<span class="asterisc">*</span> :</label>
                                 </div>
                                 <div class="col-sm-3 col-md-3 field-item">
-                                    <select name="Active" ng-model="car.Active" ng-change="changeOption()" ng-options="a.ID as a.Name for a in Active" required>
+                                    <select name="Active" ng-model="car.Active" ng-options="a.ID as a.Name for a in Active" required>
                                         <option value="">--Select--</option>
                                     </select>
                                     <span ng-show="submitted == true && cardetailsForm.Active.$error.required" style="color:red">Select it</span>
