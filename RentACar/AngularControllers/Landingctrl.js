@@ -9,22 +9,25 @@
         yearlist:'',
         makelist:'',
         Namelist:'',
-        Classlist: '',
-        FROM: '',
+        Classlist:'',
+        FROM:'',
         TO:''
     }
+    
+   
     $scope.Reset = function () {
         $scope.submitted = false;
         $scope.lan = [];
         yearlist:'';
         makelist:'';
         Namelist:'';
-        Classlist: '';
-        FROM: '';
-        TO: ''
+        Classlist:'';
+        FROM:'';
+        TO:''
     }
-    $scope.showalertmessage = function () {
+    $scope.showalertmessage = function () {     
         if ($scope.lan.yearlist == undefined && $scope.lan.Namelist == undefined && $scope.lan.Classlist == undefined && $scope.lan.makelist == undefined && $scope.lan.FROM == undefined && $scope.lan.TO == undefined)
-            alert('Please Enter something')
-    }
+            alert('Please Enter something');
+    };
 });
+

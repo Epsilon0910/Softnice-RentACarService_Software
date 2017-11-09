@@ -176,6 +176,7 @@
     <Content Include="AngularControllers\EmployeeDetailsCtrl.js" />
     <Content Include="AngularControllers\MasterCtrl.js" />
     <Content Include="AngularControllers\LandingCtrl.js" />
+    <Content Include="AngularControllers\OrdersCtrl.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\mytemplate\css\animate.css" />
@@ -278,6 +279,7 @@
     <Content Include="Views\Admin\Logistics.cshtml" />
     <Content Include="Views\Home\Ticket.cshtml" />
     <Content Include="Views\Home\SerivceSection.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

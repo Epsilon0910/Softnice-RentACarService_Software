@@ -183,47 +183,46 @@
                 <div class="check-availability-box">
                     <div class="row-fluid">
                         <label>CLASS :</label>
-                        <select name="cs" ng-model="lan.Classlist" ng-options="t.ID as t.Name for t in Classlist" required>
+                        <select name="class" ng-model="lan.Classlist" ng-options="t.ID as t.Name for t in Classlist" >
                             <option value="">--Select--</option>
                         </select>
-                        <span ng-show="submitted == true && landingform.cs.$error.required" style="color:red">Sel</span>
+                        <span ng-show="submitted == true && landingform.class.$error.required" style="color:red">select one</span>
                     </div>
                     <div class="row-fluid">
                         <label>NAME :</label>
-                        <select name="naaam" ng-model="lan.Namelist" ng-options="N.ID as N.Name for N in Namelist" required>
+                        <select name="name" ng-model="lan.Namelist" ng-options="N.ID as N.Name for N in Namelist" >
                             <option value="">--Select--</option>
                         </select>
-                        <span ng-show="submitted == true && landingform.naaam.$error.required" style="color:red">Sel</span>
+                        <span ng-show="submitted == true && landingform.name.$error.required" style="color:red">select one</span>
                     </div>
                     <div class="row-fluid">
                         <label>MAKE :</label>
-                        <select name="maaak" ng-model="lan.makelist" ng-options="N.ID as N.Name for N in makelist" required>
+                        <select name="make" ng-model="lan.makelist" ng-options="M.ID as M.Name for M in makelist" >
                             <option value="">--Select--</option>
                         </select>
-                        <span ng-show="submitted == true && landingform.maaak.$error.required" style="color:red">Sel</span>
+                        <span ng-show="submitted == true && landingform.make.$error.required" style="color:red">select one</span>
                     </div>
                     <div class="row-fluid">
                         <label>YEAR :</label>
-                        <select name="yea" ng-model="lan.yearlist" ng-options="N.ID as N.Name for N in yearlist" required>
+                        <select name="year" ng-model="lan.yearlist" ng-options="Y.ID as Y.Name for Y in yearlist" >
                             <option value="">--Select--</option>
                         </select>
-                        <span ng-show="submitted == true && landingform.yea.$error.required" style="color:red">Se</span>
+                        <span ng-show="submitted == true && landingform.year.$error.required" style="color:red">select one</span>
                     </div>
                     <div class="row-fluid">
                         <label for="">FROM :</label>
-                        <input name="fr" type="date" ng-model="lan.FROM" required>
-                        <span ng-show="submitted == true && landingform.fr.$error.required" style="color:red">Sel</span>
+                        <input name="from" type="date" ng-model="lan.FROM" >
+                        <span ng-show="submitted == true && landingform.from.$error.required" style="color:red">select one</span>
                         <label for="">TO :</label>
-                        <input type="date" name="tooooo" ng-model="lan.TO" required>
-                        <span ng-show="submitted == true && landingform.tooooo.$error.required" style="color:red">Sel/span>
+                        <input type="date" name="to" ng-model="lan.TO" >
+                        <span ng-show="submitted == true && landingform.to.$error.required" style="color:red">select one</span>
                     </div>
                     <div class="row-fluid">
                         <label>Payment :</label>
-                        <input type="radio" name="payment" value="Paid"> Paid
+                        <input type="radio" name="payment" value="Paid" > Paid
                         <input type="radio" name="payment" value="Not Paid">Not Paid
                     </div>
-                    <div class="row-fluid">
-                       
+                    <div class="row-fluid">            
                         <input type="button" class="custom-button" value="Check Availability" ng-click="showalertmessage()" />
                         <input type="button" class="custom-button" value="Reset" ng-click="Reset()" />
                     </div>

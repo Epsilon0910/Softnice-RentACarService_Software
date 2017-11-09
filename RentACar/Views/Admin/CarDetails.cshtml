@@ -336,18 +336,18 @@
                                 <div class="col-sm-3 col-md-3">
                                     <label>Airbags :</label>
                                 </div>
-                                <div class="col-sm-3 col-md-3" name="airbags" required ng-value="1" ng-model="test">
+                                <div class="col-sm-3 col-md-3"  required >
                                     <div class="col-sm-4 col-md-4" style="padding:0;">
                                         <label class="col-sm-6 col-md-6" style="padding:0;">YES :</label>
-                                        <input type="radio" class="col-sm-6 col-md-6" name="airbag" ng-model="airbag" value="yes" />
+                                        <input type="radio" class="col-sm-6 col-md-6" name="ab" required value="1" ng-model="checkboxSelection1" />
                                     </div>
                                     <div class="col-sm-4 col-md-4" style="padding:0;">
                                         <label class="col-sm-6 col-md-6" style="padding:0;">NO :</label>
-                                        <input type="radio" class="col-sm-6 col-md-6" name="airbag" ng-model="airbag" value="no" />
+                                        <input type="radio" class="col-sm-6 col-md-6" name="ab"  required value="2" ng-model="checkboxSelection1" />
                                     </div>
                                     <div ng-if="airbag!='yes'" style="color:red">
                                         <div ng-if="airbag!='no'" style="color:red">
-                                            <div ng-show="submitted == true && cardetailsForm.chasisno.$error.required">select one</div>
+                                            <span ng-show="submitted == true && cardetailsForm.ab.$error.required" style="color:red">select one</span>
                                         </div>
                                         </div>
                                 </div>
