@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" ng-app="rentapp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +16,9 @@
 
     <!-- Js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>   
+    <script src="~/Scripts/angular.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <style>
         /*.main-header {
             padding: 5px;
@@ -95,10 +97,10 @@
             height: 26px;
         }
 
-        .field-item select {
-            width: 162px;
-            height: 26px;
-        }
+            .field-item select {
+                width: 162px;
+                height: 26px;
+            }
 
         .car-table-wrapper {
             border: 1px solid black;
@@ -145,7 +147,7 @@
     </style>
 </head>
 
-<body>
+<body  ng-controller="CarDetailsCtrl" >
     <!-- Header Start -->
     <header>
         <div class="container">
@@ -178,28 +180,31 @@
             </div>
         </div>
     </header><!-- header close -->
-    <section class="container">
-        <div class="main-wrapper">
-            <div class="main">
-                <div class="car-detail-fields-wrapper">
-                    <div class="car-detail-fields-header sub-header">
-                        <strong>ADD CAR</strong>
-                    </div>
-                    <div class="car-detail-fields container-fluid">
-                        <div class="row row-fluid">
-                            <div class="col-sm-3 col-md-3">
-                                <label>Vendor Name<span class="asterisc">*</span> :</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <input type="text" placeholder="" />
-                                <a href="#"><span class="glyphicon glyphicon-plus-sign"></span>ADD</a>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <label>Creation Date :</label>
-                            </div>
-                            <div class="col-sm-3 col-md-3 field-item">
-                                <input type="date" placeholder="" />
-                            </div>
+    <form name="cardetailsForm" ng-submit="cardetailsForm.$valid && add()" novalidate>
+        <section class="container">
+            <div class="main-wrapper">
+                <div class="main">
+                    <div class="car-detail-fields-wrapper">
+                        <div class="car-detail-fields-header sub-header">
+                            <strong>ADD CAR</strong>
+                        </div>
+                        <div class="car-detail-fields container-fluid">
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Vendor Name<span class="asterisc">*</span> :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="text" placeholder="" name="vend" ng-model="car.vendname"  required />
+                                    <span ng-show="submitted == true && cardetailsForm.vend.$error.required" style="color:red">enter it</span>
+                                    <a href="#"><span class="glyphicon glyphicon-plus-sign"></span>ADD</a>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Creation Date :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="date" placeholder="" name="creation" ng-model="car.CreationDate" required style="width:178px;"/>
+                                    <span ng-show="submitted == true && cardetailsForm.creation.$error.required" style="color:red">enter it</span>
+                                </div>
 
                         </div>
                         <div class="row row-fluid">
@@ -209,7 +214,6 @@
                             <div class="col-sm-3 col-md-3 field-item">
                                 <input type="text" placeholder="" />
                             </div>
-
                             <div class="col-sm-3 col-md-3">
                                 <label>Class<span class="asterisc">*</span> :</label>
                             </div>
@@ -226,11 +230,9 @@
                             <div class="col-sm-3 col-md-3">
                                 <label>Car Name<span class="asterisc">*</span> :</label>
                             </div>
-
                             <div class="col-sm-3 col-md-3 field-item">
                                 <input type="text" placeholder="" />
                             </div>
-
                             <div class="col-sm-3 col-md-3">
                                 <label>Launch Year<span class="asterisc">*</span> :</label>
                             </div>
@@ -243,7 +245,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
                                 <label>Color<span class="asterisc">*</span> :</label>
@@ -251,20 +252,19 @@
                             <div class="col-sm-3 col-md-3 field-item">
                                 <input type="text" placeholder="" />
                             </div>
-
                             <div class="col-sm-3 col-md-3">
                                 <label>Passanger Capacity :</label>
                             </div>
                             <div class="col-sm-3 col-md-3 field-item">
                                 <input type="Number" />
                             </div>
+
                         </div>
 
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
                                 <label>Fuel Type :</label>
                             </div>
-
                             <div class="col-sm-3 col-md-3 field-item">
                                 <select>
                                     <option>--SELECT--</option>
@@ -272,7 +272,6 @@
                                     <option>NO</option>
                                 </select>
                             </div>
-
                             <div class="col-sm-3 col-md-3">
                                 <label>Transmission Type :</label>
                             </div>
@@ -284,7 +283,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="row row-fluid">
                             <div class="col-sm-3 col-md-3">
                                 <label>Engine Number<span class="asterisc">*</span> :</label>
@@ -292,7 +290,6 @@
                             <div class="col-sm-3 col-md-3 field-item">
                                 <input type="text" placeholder="" />
                             </div>
-
                             <div class="col-sm-6 col-md-6">
                                 <div class="col-sm-6 col-md-6" style="padding-left:0;">
                                     <div class="col-sm-4 col-md-4" style="padding:0;">
@@ -302,7 +299,6 @@
                                         <input type="radio" name="radio" />
                                     </div>
                                 </div>
-
                                 <div class="col-sm-6 col-md-6" style="">
                                     <div class="col-sm-4 col-md-4" style="padding:0;">
                                         <label>Quantity :</label>
@@ -311,7 +307,6 @@
                                         <input type="number" style="width:70px;" />
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="row row-fluid">
@@ -396,142 +391,95 @@
                     <a href="#"><span class="glyphicon glyphicon-search"></span></a>
                 </div>
             </div>
-            <div class="car-table table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>ACTION</th>
-                            <th>VENDOR NAME</th>
-                            <th>CREATION DATE</th>
-                            <th>MANUFACTURE NAME</th>
-                            <th>CLASS</th>
-                            <th>CAR NAME</th>
-                            <th>LAUNCH YEAR</th>
-                            <th>COLOR</th>
-                            <th>PASSANGER CAPACITY</th>
-                            <th>FUEL TYPE</th>
-                            <th>TRANSMISSION TYPE</th>
-                            <th>ENGINE NUMBER</th>
-                            <th>AC/NON-AC</th>
-                            <th>QUANTITY</th>
-                            <th>AIRBAGS</th>
-                            <th>CURRENT PRICE</th>
-                            <th>DEPRECIATION RATE</th>
-                            <th>ACTIVE</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <a href="#" title="Edit">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                </a>
-                                <a href="#" title="Delete">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" title="Edit">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                </a>
-                                <a href="#" title="Delete">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" title="Edit">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                </a>
-                                <a href="#" title="Delete">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" title="Edit">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                </a>
-                                <a href="#" title="Delete">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
+            <div class="car-table">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>CAR NAME</th>
+                        <th>CLASS</th>
+                        <th>YEAR</th>
+                        <th>BOOKING STATUS</th>
+                        <th>START DATE</th>
+                        <th>END DATE</th>
+                        <th>PAYMENT STATUS</th>
+                        <th>PICKUP</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 </table>
             </div>
+        </div>
+        </div>
         </div>
     </section>
     <!-- Call to action Start -->
@@ -543,23 +491,25 @@
                         <h2>We design delightful digital experiences.</h2>
                         <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- footer Start -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="footer-manu">
+        </section>
+        <!-- footer Start -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-manu">
 
+                        </div>
+                        <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">SoftNice</a>.</p>
                     </div>
-                    <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">SoftNice</a>.</p>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 </body>
 </html>
+<script src="~/AngularControllers/MasterCtrl.js"></script>
+<script src="~/AngularControllers/CarDetailsCtrl.js"></script>
