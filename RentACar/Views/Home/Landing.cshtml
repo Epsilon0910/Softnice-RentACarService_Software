@@ -170,166 +170,169 @@
         </div>
     </header><!-- header close -->
     <!-- contact form start -->
-    
-    <section id="contact-form" class="container">
-        <div class="section-header">
-            Show Available Cars
-        </div>
-
-        <div id="check-availability-wraper">
-            <div class="sub-section-header">
-                Fill Car Information
+    <form name="landform" novalidate>
+        <section id="contact-form" class="container">
+            <div class="section-header">
+                Show Available Cars
             </div>
-            <div class="check-availability-box">
-                <form name="checkAvailabilityForm">
-                    <div class="row-fluid">
-                        <label>CLASS :</label>
-                        <select name="class_id" class="classdropdown" ng-model="classID" ng-options="class.ID as class.Name for class in Classlist" required>
-                            <option value="">--Select--</option>
-                        </select>
-                        <span ng-show="checkAvailabilityForm.class_id.$error.required && checkAvailabilityForm.class_id.$dirty">Select Service First</span>
-                    </div>
-                    <div class="row-fluid">
-                        <label>NAME :</label>
-                        <select>
-                            <option value="">--Select--</option>
-                            <option ng-repeat="list in Namelist" value="{{list.ID}}">{{list.Name}}</option>
 
-                        </select>
-                    </div>
-                    <div class="row-fluid">
-                        <label>MAKE :</label>
-                        <select>
-                            <option value="">--Select--</option>
-                            <option ng-repeat="list in makelist" value="{{list.ID}}">{{list.Name}}</option>
-                        </select>
-                    </div>
-                    <div class="row-fluid">
-                        <label>YEAR :</label>
-                        <select>
-                            <option value="">--Select--</option>
-                            <option ng-repeat="list in yearlist" value="{{list.ID}}">{{list.Name}}</option>
+            <div id="check-availability-wraper">
+                <div class="sub-section-header">
+                    Fill Car Information
+                </div>
+                <div class="check-availability-box">
+                    
+                        <div class="row-fluid">
+                            <label>CLASS :</label>
+                            <select name="class_id" class="classdropdown" ng-model="lan.Classlist" ng-options="class.ID as class.Name for class in Classlist" required>
+                                <option value="">--Select--</option>
+                            </select>
 
+                        </div>
+                        <div class="row-fluid">
+                            <label>NAME :</label>                             
+                                <select ng-model="lan.Namelist" ng-options="x.ID as x.Name for x in Namelist">
+                                    <option value="">--Select--</option>
+                                </select>                         
+                        </div>
+                        <div class="row-fluid">
+                            <label>MAKE :</label>                                                     
+                                <select ng-model="lan.makelist" ng-options="x.ID as x.Name for x in makelist">
+                                    <option value="">--Select--</option>   
+                                </select>
+                                                      
+                        </div>
+                        <div class="row-fluid">
+                            <label>YEAR :</label>                           
+                                
+                                <select ng-model="lan.yearlist" ng-options="y.ID as y.Name for y in yearlist">
+                                    <option value="">--Select--</option>
+                                </select>                          
+                        </div>
+                    <div class="row-fluid">
+                        <label>PICKUP :</label>
+
+                        <select ng-model="lan.Picklist" ng-options="y.ID as y.Name for y in Picklist">
+                            <option value="">--Select--</option>
                         </select>
                     </div>
-                    <div class="row-fluid">
-                        <label for="">FROM :</label>
-                        <input type="date" name="dateofbirth" required>
-                        <label for="">TO :</label>
-                        <input type="date" name="dateofbirth" required>
-                        <p class="errormeaasge" id="perrormsg"></p>
-                    </div>
-                    <div class="row-fluid">
-                        <label>Payment :</label>
-                        <input type="radio" name="payment" value="Paid"> Paid
-                        <input type="radio" name="payment" value="Not Paid">Not Paid
-                    </div>
-                    <div class="row-fluid">
-                        <input type="button" class="custom-button" value="Check Avaiilibility" onclick="javascript:return Validate();" />
-                        <input type="button" class="custom-button" value="Reset" />
-                    </div>
-                </form>
-            </div>
-        </div>
-        <vr></vr>
-        <div id="display-car-wraper">
-            <div class="sub-section-header">
-                Cars Available
-                @*<div class="search">
-                    <input type="search" value="" placeholder="Search by name" />
-                    <a href="#"><span class="glyphicon glyphicon-search" ></span></a>
-                </div>*@
-            </div>
-            
-            <div class="display-car-box">
-                <table style="width:100%">
-                    <tr>
-                        <th>Select</th>
-                        <th>CAR NAME</th>
-                        <th>CLASS</th>
-                        <th>YEAR</th>
-                        <th>BOOKING STATUS</th>
-                        <th>START DATE</th>
-                        <th>END DATE</th>
-                        <th>PAYMENT STATUS</th>
-                        <th>PICKUP</th>
-                    </tr>
-                                                          
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
-                <div class="row-fluid">
-                    <input type="button" class="custom-button" value="Book Car" />
+
+                        <div class="row-fluid">
+                            <label for="">FROM :</label>
+                            <input type="date" name="dateofbirth" ng-model="lan.FROM" required>
+                            <label for="">TO :</label>
+                            <input type="date" name="dateofbirth" ng-model="lan.TO" required>
+                            <p class="errormeaasge" id="perrormsg"></p>
+                        </div>
+
+                        <div class="row-fluid">
+                            <input type="button" class="custom-button" value="Check Avaiilibility" ng-click="showalertmessage()" />
+                            <input type="button" class="custom-button" value="Reset" ng-click="Reset()" />
+                        </div>
+                    
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Call to action Start -->
-    <section id="call-to-action">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <h2>We design delightful digital experiences.</h2>
-                        <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+            <vr></vr>
+            <div id="display-car-wraper">
+                <div class="sub-section-header">
+                    Cars Available
+                    @*<div class="search">
+                            <input type="search" value="" placeholder="Search by name" />
+                            <a href="#"><span class="glyphicon glyphicon-search" ></span></a>
+                        </div>*@
+                </div>
+
+                <div class="display-car-box">
+                    <table style="width:100%">
+                        <tr>
+                            <th>Select</th>
+                            <th>CAR NAME</th>
+                            <th>CLASS</th>
+                            <th>YEAR</th>
+                            <th>BOOKING STATUS</th>
+                            <th>START DATE</th>
+                            <th>END DATE</th>
+                            <th>PAYMENT STATUS</th>
+                            <th>PICKUP</th>
+                        </tr>
+
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div class="row-fluid">
+                        <input type="button" class="custom-button" value="Book Car" />
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- footer Start -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="footer-manu">
+        </section></form>
+        <!-- Call to action Start -->
+        <section id="call-to-action">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <h2>We design delightful digital experiences.</h2>
+                            <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+                        </div>
                     </div>
-                    <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">SoftNice</a>.</p>
                 </div>
             </div>
-        </div>
-    </footer>
+        </section>
+        <!-- footer Start -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-manu">
+                        </div>
+                        <p>Copyright &copy; Crafted by <a href="https://dcrazed.com/">SoftNice</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 </body>
 </html>
+<script src="~/AngularControllers/MasterCtrl.js"></script>
+<script src="~/AngularControllers/LandingCtrl.js"></script>

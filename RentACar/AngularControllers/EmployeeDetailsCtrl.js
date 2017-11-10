@@ -26,21 +26,21 @@
     $scope.Reset = function () {
         $scope.submitted = false;
         $scope.empDetail = [];
-        bankbranch:'',
-        Email1; '',
-        Names; '',
-        Accno; '',
-        BCode; '',
-        Pno; '',
-        IFSC; '',
-        Add1; '',
-        Add2; '',
-        Aadhar; '',
-        Createddate; '',
-        Departmentlist;'',
-        Designation;'',
-        Bankname;'',
-        Active; '',
+        bankbranch: '';
+        Email1; '';
+        Names; '';
+        Accno; '';
+        BCode; '';
+        Pno; '';
+        IFSC; '';
+        Add1; '';
+        Add2; '';
+        Aadhar; '';
+        Createddate; '';
+        Departmentlist;'';
+        Designation;'';
+        Bankname;'';
+        Active; '';
         SSN;''
     }
 });

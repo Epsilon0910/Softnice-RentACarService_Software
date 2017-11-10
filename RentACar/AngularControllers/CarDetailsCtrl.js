@@ -40,16 +40,16 @@
         FuelList: '';
         Carclass: '';
         LaunchYear: '';
-        Transmissiontype; '';
+        Transmissiontype: '';
         Active: '';
         ManufactureName: ''     
     }
+    
     $scope.checkboxSelection = '1';
     $scope.isCheckboxSelected = function (index) {
         return index === $scope.checkboxSelection;
-    };
+    }
     $scope.checkboxSelection1 = '1';
-    $scope.isCheckboxSelected1 = function (index) {
-        return index === $scope.checkboxSelection;
-    };
+   
+    
 });
