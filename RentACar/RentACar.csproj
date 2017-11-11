@@ -172,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AngularControllers\BookCtrl.js" />
+    <Content Include="AngularControllers\CarDetailsCtrl.js" />
     <Content Include="AngularControllers\MasterCtrl.js" />
     <Content Include="AngularControllers\LandingCtrl.js" />
     <Content Include="AngularControllers\OrdersCtrl.js" />

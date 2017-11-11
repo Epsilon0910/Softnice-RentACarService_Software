@@ -18,7 +18,4 @@
     };
 });
 
-//l.controller('LandingCtrl', function ($scope) {
 
-//    $scope.date = '';
-//});
