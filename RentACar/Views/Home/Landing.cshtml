@@ -157,10 +157,11 @@
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <input type="button" class="custom-button" value="UserName" onclick="window.location.href='@Url.Action("User", "Home")';"style="float:right"/>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li>@Html.ActionLink("Works", "Landing")</li>
                                     <li>@Html.ActionLink("Book a Car", "Book")</li>
-                                    <li>@Html.ActionLink("Logout", "Login")</li>
+                                    <li>@Html.ActionLink("Logout", "Login")</li>                               
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                         </div><!-- /.container-fluid -->
