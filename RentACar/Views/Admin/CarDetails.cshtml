@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" ng-app="rentapp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +17,8 @@
     <!-- Js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <style>
         /*.main-header {
             padding: 5px;
@@ -114,22 +116,11 @@
             overflow-x: auto;
         }
 
-        .table > thead > tr > th {
-            border-bottom: 1px solid grey;
-            width: auto;
-            vertical-align: top;
-            text-align: center;
-        }
-
         table {
             border-collapse: collapse;
             border-spacing: 0;
             width: 100%;
             border: 1px solid #ddd;
-        }
-
-        thead, tbody {
-            border: 1px solid grey;
         }
 
         th, td {
@@ -139,7 +130,7 @@
         }
 
         tr:nth-child(even) {
-            background-color: #f2f2f2
+            background-color: #f2f2f2;
         }
 
         .asterisc {
@@ -148,7 +139,7 @@
     </style>
 </head>
 
-<body>
+<body ng-controller="CarDetailsCtrl">
     <!-- Header Start -->
     <header>
         <div class="container">
@@ -181,355 +172,244 @@
             </div>
         </div>
     </header><!-- header close -->
-    
-
-    <section class="container">
-        <div class="main-wrapper">
-            <div class="main">
-                <div class="car-detail-fields-wrapper">
-                    <div class="car-detail-fields-header sub-header">
-                        <strong>CAR DETAILS </strong>
-                    </div>
-                    <div class="panel with-nav-tabs panel-default">
-                        <div class="panel-heading">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tab1default" data-toggle="tab">BASIC DETAILS</a></li>
-                                <li><a href="#tab2default" data-toggle="tab">TECHNICAL DETAILS</a></li>
-
-                            </ul>
+    <form name="cardetailsForm" ng-submit="cardetailsForm.$valid && add()" novalidate>
+        <section class="container">
+            <div class="main-wrapper">
+                <div class="main">
+                    <div class="car-detail-fields-wrapper">
+                        <div class="car-detail-fields-header sub-header">
+                            <strong>ADD CAR</strong>
                         </div>
-                        <div class="panel-body">
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active" id="tab1default">
-                                    <div class="car-detail-fields container-fluid">
-
-
-
-                    <div class="row row-fluid">
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Vendor Name<span class="asterisc">*</span> :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="text" placeholder="" />
-                                                <a href="#"><span class="glyphicon glyphicon-plus-sign"></span>ADD</a>
-                                            </div>
-
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Fuel Type :</label>
-                                            </div>
-
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <select>
-                                                    <option>--SELECT--</option>
-                                                    <option>YES</option>
-                                                    <option>NO</option>
-                                                </select>
-                                            </div>
-
-
-                                 
-                    </div>
-
-
-
-                    <div class="row row-fluid">
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Manufacturer Name :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="text" placeholder="" />
-                                                <a href="#"><span class="glyphicon glyphicon-plus-sign"></span>ADD</a>
-                                            </div>
-                                         <div class="col-sm-3 col-md-3">
-                                                <label>Transmission Type :</label>
-                                            </div>
-
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <select>
-                                                    <option>--SELECT--</option>
-                                                    <option>AUTOMETIC</option>
-                                                    <option>SEMI-AUTOMATIC</option>
-                                                </select>
-                                            </div>
-
-                                   
-                                           
-                     </div>
-                     <div class="row row-fluid">
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Car Name<span class="asterisc">*</span> :</label>
-                                            </div>
-
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="text" placeholder="" />
-                                            </div>
-                              
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>AC :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3">
-                                                <div class="col-sm-4 col-md-4" style="padding:0;">
-                                                    <label class="col-sm-6 col-md-6" style="padding:0;">YES :</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
-                                                </div>
-                                                <div class="col-sm-4 col-md-4" style="padding:0;">
-                                                    <label class="col-sm-6 col-md-6" style="padding:0;">NO :</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
-                                                </div>
-                                            </div>
-
-                                         
-                      </div>
-
-                     
-                      <div class="row row-fluid">
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Class<span class="asterisc">*</span> :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <select>
-                                                    <option>--SELECT--</option>
-                                                    <option>MINI</option>
-                                                    <option>SEDAN</option>
-                                                    <option>XUV</option>
-                                                </select>
-                                            </div>
-                                         
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Passenger Capacity :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="Number" />
-                                            </div>
-                                          
-                                         
-                        </div>
-                                        <div class="row row-fluid">
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Color<span class="asterisc">*</span> :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="text" placeholder="" />
-                                            </div>
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Creation Date :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="date" placeholder="" />
-                                            </div>
-                                        </div>
-
-                                            <div class="row row-fluid">
-                                                @*<div class="col-sm-3 col-md-3">
-                                                    <label>Color<span class="asterisc">*</span> :</label>
-                                                </div>
-                                                <div class="col-sm-3 col-md-3 field-item">
-                                                    <input type="text" placeholder="" />
-                                                </div>*@
-                                                <div class="row-fluid pull-right">
-                                                    <button class="custom-button">Save</button>
-                                                    <button class="custom-button">Reset</button>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    
-                               </div>
-                                <div class="tab-pane fade" id="tab2default">
-                                    <div class="car-detail-fields container-fluid">
-                           <div class="row row-fluid">
-                                                     <div class="col-sm-3 col-md-3">
-                                                <label>Launch Year<span class="asterisc">*</span> :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <select>
-                                                    <option>--SELECT--</option>
-                                                    <option>2015</option>
-                                                    <option>2016</option>
-                                                    <option>2017</option>
-                                                </select>
-                                            </div>
-                                           <div class="col-sm-3 col-md-3">
-                                                <label>Luggage Capacity :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="Number" />
-                                            </div>
-                                            @*<div class="col-sm-3 col-md-3">
-                                                <label>Fuel Type :</label>
-                                            </div>
-
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <select>
-                                                    <option>--SELECT--</option>
-                                                    <option>YES</option>
-                                                    <option>NO</option>
-                                                </select>
-                                            </div>*@
-                                          
-                             </div>
-
-                             <div class="row row-fluid">
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Purchase Price :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="Number" />
-                                            </div>
-                                            @*<div class="col-sm-3 col-md-3">
-                                                <label>Transmission Type :</label>
-                                            </div>
-
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <select>
-                                                    <option>--SELECT--</option>
-                                                    <option>AUTOMETIC</option>
-                                                    <option>SEMI-AUTOMETIC</option>
-                                                </select>
-                                            </div>*@
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>No. of Doors :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="Number" />
-                                            </div>
-                               </div>
-                                        
-                               <div class="row row-fluid">
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Car Registration Number <span class="asterisc">*</span> :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="text" placeholder="" />
-                                            </div>
-
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Airbags :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3">
-                                                <div class="col-sm-4 col-md-4" style="padding:0;">
-                                                    <label class="col-sm-6 col-md-6" style="padding:0;">YES :</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
-                                                </div>
-                                                <div class="col-sm-4 col-md-4" style="padding:0;">
-                                                    <label class="col-sm-6 col-md-6" style="padding:0;">NO :</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
-                                                </div>
-                                            </div>
-                                            
-
-                                 </div>
-                                        
-                                 <div class="row row-fluid">
-                                            @*<div class="col-sm-3 col-md-3">
-                                                <label>AC :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3">
-                                                <div class="col-sm-4 col-md-4" style="padding:0;">
-                                                    <label class="col-sm-6 col-md-6" style="padding:0;">YES :</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
-                                                </div>
-                                                <div class="col-sm-4 col-md-4" style="padding:0;">
-                                                    <label class="col-sm-6 col-md-6" style="padding:0;">NO :</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
-                                                </div>
-                                            </div>*@
-                                            <div class="col-sm-3 col-md-3">
-                                                <label>Engine Number<span class="asterisc">*</span> :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="text" placeholder="" />
-                                            </div>
-                                           <div class="col-sm-3 col-md-3">
-                                                <label>STATUS<span class="asterisc">*</span> :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <select>
-                                                    <option>--SELECT--</option>
-                                                    <option>ACTIVE</option>
-                                                    <option>INACTIVE</option>
-                                                </select>
-                                            </div>
-
-                                         
-                                  </div>
-                                        
-                                  <div class="row row-fluid">
-                                       <div class="col-sm-3 col-md-3">
-                                          <label>Chasis Number<span class="asterisc">*</span> :</label>
-                                          </div>
-                                          <div class="col-sm-3 col-md-3 field-item">
-                                               <input type="text" placeholder="" />
-                                          </div>
-                                      
-                                         <div class="col-sm-3 col-md-3">
-                                                <label>Creation Date :</label>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3 field-item">
-                                                <input type="date" placeholder="" />
-                                            </div>
-                                            <div class="row-fluid pull-right">
-                                                <button class="custom-button">Save</button>
-                                                <button class="custom-button">Reset</button>
-                                            </div>
-                                   </div>
-                                    </div>
-
-
-
+                        <div class="car-detail-fields container-fluid">
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Vendor Name<span class="asterisc">*</span> :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="text" placeholder="" name="vend" ng-model="car.vendname"  required />
+                                    <span ng-show="submitted == true && cardetailsForm.vend.$error.required" style="color:red">enter it</span>
+                                    <a href="#"><span class="glyphicon glyphicon-plus-sign"></span>ADD</a>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Creation Date :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="date" placeholder="" name="creation" ng-model="car.CreationDate" required />
+                                    <span ng-show="submitted == true && cardetailsForm.creation.$error.required" style="color:red">enter it</span>
                                 </div>
 
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Manufacturer Name :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <select name="manu" ng-model="car.manufacturer" ng-options="man.ID as man.Name for man in ManufactureName" required>
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    <span ng-show="submitted == true && cardetailsForm.manu.$error.required" style="color:red">Select it</span>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Class<span class="asterisc">*</span> :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <select name="Carclass" ng-model="car.classs" ng-options="cs.ID as cs.Name for cs in Carclass" required>
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    <span ng-show="submitted == true && cardetailsForm.Carclass.$error.required" style="color:red">Select it</span>
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Car Name<span class="asterisc">*</span> :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="text" placeholder="" name="carname" ng-model="car.CarName" required />
+                                    <span ng-show="submitted == true && cardetailsForm.carname.$error.required" style="color:red">enter it</span>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Launch Year<span class="asterisc">*</span> :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <select name="launchyear" ng-model="car.launch" ng-options="launch.ID as launch.Name for launch in LaunchYear" required>
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    <span ng-show="submitted == true && cardetailsForm.launchyear.$error.required" style="color:red">Select it</span>
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Color<span class="asterisc">*</span> :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="text" placeholder="" name="color" ng-model="car.Carcolor" required />
+                                    <span ng-show="submitted == true && cardetailsForm.color.$error.required" style="color:red">enter it</span>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Passanger Capacity :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="number" placeholder="" name="capacity" ng-model="car.carCapacity" required />
+                                    <span ng-show="submitted == true && cardetailsForm.capacity.$error.required" style="color:red">enter it</span>
+                                </div>
+
+                            </div>
+
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Fuel Type :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <select name="FuelList" ng-model="car.sds" ng-options="fuel.ID as fuel.Name for fuel in FuelList" required>
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    <span ng-show="submitted == true && cardetailsForm.FuelList.$error.required" style="color:red">Select it</span>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Transmission Type :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <select name="Transmissiontype" ng-model="car.transmissiont" ng-options="t.ID as t.Name for t in Transmissiontype" required>
+                                        <option value="">--Select--</option>
+
+                                    </select>
+                                    <span ng-show="submitted == true && cardetailsForm.transmissiont.$error.required" style="color:red">Select it</span>
+                                </div>
+                            </div>
+
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Engine Number<span class="asterisc">*</span> :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="number" placeholder="" name="engine" ng-model="car.EngineNo" required />
+                                    <span ng-show="submitted == true && cardetailsForm.engine.$error.required" style="color:red">enter it</span>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="col-sm-6 col-md-6" style="padding-left:0;">
+                                        <div class="col-sm-4 col-md-4" style="padding:0;">
+                                            <label>AC :</label>
+                                        </div>
+                                        <div class="col-sm-4 col-md-4" style="padding:0;">
+                                            <input type="radio" name="radio" value="1" ng-model="checkboxSelection" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6" style="">
+                                        <div class="col-sm-4 col-md-4" style="padding:0;">
+                                            <label>Quantity :</label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 field-item" style="">
+                                            <input type="number" style="width:70px;" ng-disabled="isCheckboxSelected('2')"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Chasis Number<span class="asterisc">*</span> :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="number" placeholder="" name="chasisno" ng-model="car.ChasisNo" required />
+                                    <span ng-show="submitted == true && cardetailsForm.chasisno.$error.required" style="color:red">enter it</span>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="col-sm-6 col-md-6" style="padding-left:0;">
+                                        <div class="col-sm-4 col-md-4" style="padding:0;">
+                                            <label>NON-AC :</label>
+                                        </div>
+                                        <div class="col-sm-4 col-md-4" style="padding:0;">
+                                            <input type="radio" name="radio" value="2" ng-model="checkboxSelection" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6" style="">
+                                        <div class="col-sm-4 col-md-4" style="padding:0;">
+                                            <label>Quantity :</label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 field-item" style="">
+                                            <input type="number" style="width:70px;" ng-disabled="isCheckboxSelected('1')" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Airbags :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3" name="airbags" required ng-value="1" ng-model="test">
+                                    <div class="col-sm-4 col-md-4" style="padding:0;">
+                                        <label class="col-sm-6 col-md-6" style="padding:0; ">YES :</label>
+                                        <input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" value="1" ng-model="checkboxSelection1" />
+                                    </div>
+                                    <div class="col-sm-4 col-md-4" style="padding:0;">
+                                        <label class="col-sm-6 col-md-6" style="padding:0;">NO :</label>
+                                        <input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" value="2" ng-model="checkboxSelection1" />
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Price :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="number" placeholder="" name="pric" ng-model="car.Price" required />
+                                    <span ng-show="submitted == true && cardetailsForm.pric.$error.required" style="color:red">enter it</span>
+                                </div>
+                            </div>
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Depreciation Rate :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <input type="number" placeholder="" name="depreciationrate" ng-model="car.Depreciationrate" required />
+                                    <span ng-show="submitted == true && cardetailsForm.depreciationrate.$error.required" style="color:red">enter it</span>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <label>Active<span class="asterisc">*</span> :</label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">
+                                    <select name="Active" ng-model="car.activeee" ng-change="changeOption()" ng-options="a.ID as a.Name for a in Active" required>
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    <span ng-show="submitted == true && cardetailsForm.Active.$error.required" style="color:red">Select it</span>
+                                </div>
+                            </div>
+                            <div class="row-fluid pull-right">
+                                <input type="button" class="custom-button" value="Save" ng-click="submitted=true" />
+                                <button class="custom-button" ng-click="Reset()">Reset</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="car-table-wrapper">
-            <div class="car-table-header sub-header">
-                <div class="header-title">
-                    <strong>CARS LIST</strong>
+            <div class="car-table-wrapper">
+                <div class="car-table-header sub-header">
+                    <div class="header-title">
+                        <strong>CARS LIST</strong>
+                    </div>
+                    <div class="search">
+                        <input type="search" value="" placeholder="Search By Name" />
+                        <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+                    </div>
                 </div>
-                <div class="search">
-                    <input type="search" value="" placeholder="Search By Name" />
-                    <a href="#"><span class="glyphicon glyphicon-search"></span></a>
-                </div>
-            </div>
-            <div class="car-table table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead>
+                <div class="car-table">
+                    <table>
                         <tr>
-                            <th>ACTION</th>
-                            <th>VENDOR NAME</th>
-                            <th>MANUFACTURE NAME</th>
+                            <th></th>
                             <th>CAR NAME</th>
                             <th>CLASS</th>
-                            <th>COLOR</th>
-                            <th>CREATE DATE</th>
-                            <th>FUEL TYPE</th>
-                            <th>TRANSMISSION TYPE</th>
-                            <th>AC/NON-AC</th>
-                            <th>PASSANGER CAPACITY</th>
-                            
-                          
-                            <th>LAUNCH YEAR</th>
-                            <th>PURCHASE PRICE</th>
-                            <th>CAR REGISTRATION NUMBER</th>
-                            <th>ENGINE NUMBER</th>
-                            <th>CHASIS NUMBER</th>
-                            <th>LUGGAGE CAPACITY</th>
-                            <th>No. of Doors</th>
-                            <th>AIRBAGS</th>
-                        
-                            <th>STATUS</th>
-                            <th>PASSANGER CAPACITY</th>
-                           
-                            
-                         
+                            <th>YEAR</th>
+                            <th>BOOKING STATUS</th>
+                            <th>START DATE</th>
+                            <th>END DATE</th>
+                            <th>PAYMENT STATUS</th>
+                            <th>PICKUP</th>
                         </tr>
-                    </thead>
-                    <tbody>
                         <tr>
                             <td>
-                                <a href="#" title="Edit">
+                                <a href="#">
                                     <span class="glyphicon glyphicon-edit"></span>
                                 </a>
-                                <a href="#" title="Delete">
+                                <a href="#">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </a>
                             </td>
@@ -541,22 +421,13 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#" title="Edit">
+                                <a href="#">
                                     <span class="glyphicon glyphicon-edit"></span>
                                 </a>
-                                <a href="#" title="Delete">
+                                <a href="#">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </a>
                             </td>
@@ -568,22 +439,13 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#" title="Edit">
+                                <a href="#">
                                     <span class="glyphicon glyphicon-edit"></span>
                                 </a>
-                                <a href="#" title="Delete">
+                                <a href="#">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </a>
                             </td>
@@ -595,22 +457,13 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#" title="Edit">
+                                <a href="#">
                                     <span class="glyphicon glyphicon-edit"></span>
                                 </a>
-                                <a href="#" title="Delete">
+                                <a href="#">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </a>
                             </td>
@@ -622,21 +475,14 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
-                    </tbody>
-                </table>
+                    </table>
+                </div>
             </div>
-        </div>
-    </section>
+            </div>
+            </div>
+        </section>
+    </form>
     <!-- Call to action Start -->
     <section id="call-to-action">
         <div class="container">
@@ -666,3 +512,5 @@
     </footer>
 </body>
 </html>
+<script src="~/AngularControllers/MasterCtrl.js"></script>
+<script src="~/AngularControllers/CarDetailsCtrl.js"></script>

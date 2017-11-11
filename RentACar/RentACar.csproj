@@ -173,10 +173,11 @@
   <ItemGroup>
     <Content Include="AngularControllers\BookCtrl.js" />
     <Content Include="AngularControllers\CarDetailsCtrl.js" />
+    <Content Include="AngularControllers\EmployeeDetailsCtrl.js" />
     <Content Include="AngularControllers\MasterCtrl.js" />
     <Content Include="AngularControllers\LandingCtrl.js" />
     <Content Include="AngularControllers\OrdersCtrl.js" />
-    <Content Include="AngularControllers\VendorCtrl.js" />
+    <Content Include="AngularControllers\UserCtrl.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\mytemplate\css\animate.css" />
@@ -267,7 +268,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\welcome.cshtml" />
     <Content Include="Views\Home\Works.cshtml" />
     <Content Include="Views\Home\Book.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
@@ -280,6 +280,8 @@
     <Content Include="Views\Admin\Logistics.cshtml" />
     <Content Include="Views\Home\Ticket.cshtml" />
     <Content Include="Views\Home\SerivceSection.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Home\User.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
