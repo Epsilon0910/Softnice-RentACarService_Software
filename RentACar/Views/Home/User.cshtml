@@ -185,17 +185,12 @@
                                 <div class="col-sm-3 col-md-3">
                                     <label>Name:</label>
                                 </div>
-                                <div class="col-sm-3 col-md-3 field-item">
-                                    <input type="text" placeholder="" name="name" ng-model="user.Name" required />
-                                    <span ng-show="submitted == true && userform.name.$error.required" style="color:red">enter it</span>
+                                <div class="col-sm-3 col-md-3 field-item">                                  
                                 </div>
                                 <div class="col-sm-3 col-md-3">
                                     <label>Department:</label>
                                 </div>
-                                <div class="col-sm-3 col-md-3 field-item">
-                                    <select name="department" ng-model="user.Department" ng-options="D.ID as D.Name for D in Department" required>
-                                        <option value="">--Select--</option>
-                                    </select>
+                                <div class="col-sm-3 col-md-3 field-item">                                                               
                                     <span ng-show="submitted == true && userform.department.$error.required" style="color:red">Select it</span>
                                 </div>
 
@@ -211,11 +206,7 @@
                                 <div class="col-sm-3 col-md-3">
                                     <label>Role:</label>
                                 </div>
-                                <div class="col-sm-3 col-md-3 field-item">
-                                    <select name="role" ng-model="user.Role" ng-options="R.ID as R.Name for R in Role" required>
-                                        <option value="">--Select--</option>
-                                    </select>
-                                    <span ng-show="submitted == true && userform.role.$error.required" style="color:red">Select it</span>
+                                <div class="col-sm-3 col-md-3 field-item">                                   
                                 </div>
                             </div>
                             <div class="row row-fluid">
@@ -237,7 +228,13 @@
                                     <span ng-show="submitted == true && userform.confirmpass.$error.required" style="color:red">enter it</span>
                                 </div>
                                 </div>
-                              
+                            <div class="row row-fluid">
+                                <div class="col-sm-3 col-md-3">
+                                    <label> <a href="https://www.w3schools.com">change password</a></label>
+                                </div>
+                                <div class="col-sm-3 col-md-3 field-item">                                   
+                                </div>
+                            </div>
 
                             <div class="row row-fluid">
                                 <div class="col-sm-3 col-md-3">
