@@ -231,8 +231,8 @@
                 Add Customer Details
                 
                     
-                        <div class="navbar-form" role="search" style="    display: unset;
-    margin-left: 627px; ">
+                        <div class="navbar-form" role="search" style=    display: unset;
+    margin-left: 627px; >
                             <div class="input-group add-on">
                                 <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
                                 <div class="input-group-btn">
@@ -245,7 +245,7 @@
             </div>
            
             <div class="customer-detail-fields-wrapper">
-                <div class="panel with-nav-tabs panel-default" style=" padding: 15px;
+                <div class="panel with-nav-tabs panel-default" style= padding: 15px;
     MARGIN-BOTTOM: 30px;">
                     <div class="panel-heading">
                     
@@ -271,25 +271,25 @@
                                         <div class="availability-box" align="center">
                                             <div class="row row-fluid" style="margin-right: 5px;">
                                                 <div class="col-sm-3 col-md-3">
-                                                    <label class=" required-field">CUSTOMER NAME:</label>
+                                                    <label class="required-field">CUSTOMER NAME:</label>
                                                 </div>
                                                 <div class="col-sm-3 col-md-3 field-item">
                                                     <input type="text" placeholder="" name="CustomerName" ng-model="CustomerDetail.CustomerName" required />
                                                     <span ng-show="submitted == true && customerform.CustomerName.$error.required" class="color">Please fill</span>
                                                 </div>
-                                                </div><br>
+                                                </div><br />
                                                 <div class="row row-fluid" style="margin-right: 5px;">
                                                     <div class="col-sm-3 col-md-3">
-                                                        <label class=" required-field">CUSTOMER EMAIL:</label>
+                                                        <label class="required-field">CUSTOMER EMAIL:</label>
                                                     </div>
                                                     <div class="col-sm-3 col-md-3 field-item">
                                                         <input type="text" placeholder="" name="CustomerEmail" ng-model="CustomerDetail.CustomerEmail" required />
                                                         <span ng-show="submitted == true && customerform.CustomerEmail.$error.required" class="color">Please fill</span>
                                                     </div>
-                                                </div>
+                                                </div><br />
                                             <div class="row-fluid">
                                                 <div class="col-sm-3 col-md-3">
-                                                    <label class=" required-field">PHONE NUMBER</label>
+                                                    <label class="required-field">PHONE NUMBER:</label>
                                                 </div>
                                                 <div class="col-sm-3 col-md-3 field-item">
                                                     <select ng-model="CustomerDetail.CountrycodeList" ng-options="countrycodelist.ID as countrycodelist.Name for countrycodelist in CountrycodeList" name="CountryList" style="width:23%; color:green;" required>
@@ -301,7 +301,7 @@
                                             </div><br><br>
                                             <div class="row-fluid">
                                                 <div class="col-sm-3 col-md-3">
-                                                    <label class=" required-field">ALTERNATE NUMBER</label>
+                                                    <label class="required-field">ALTERNATE NUMBER:</label>
                                                 </div>
                                                 <div class="col-sm-3 col-md-3 field-item">
                                                     <select ng-model="CustomerDetail.CountrycodeList" ng-options="countrycodelist.ID as countrycodelist.Name for countrycodelist in CountrycodeList" name="CountryList" style="width:23%; color:green;" required>
@@ -310,21 +310,20 @@
                                                     <input type="text" placeholder="" name="PhoneNumber" ng-model="CustomerDetail.PhoneNumber" required style="width:49%; font-size: 15px; color:green;" />
                                                     <span ng-show="submitted == true && customerform.PhoneNumber.$error.required" class="color">Please fill</span>
                                                 </div>
-                                            </div><br><br>
+                                            </div><br><br />
                                             <div class="row-fluid">
-                                                <div class="col-sm-3 col-md-3" style="    margin-left: -2px;
-    margin-right: -8px;">
-                                                    <label class=" required-field">CREATE DATE:</label>
+                                                <div class="col-sm-3 col-md-3" style="margin-left: -2px;  margin-right: -8px;">
+                                                    <label class="required-field">CREATE DATE:</label>
                                                 </div>
                                                 <div class="col-sm-3 col-md-3 field-item">
-                                                    <input type="date" name="Date" ng-model="CustomerDetail.DateAdded" style="    line-height: 23px;" required>
+                                                    <input type="date" name="Date" ng-model="CustomerDetail.DateAdded" style="line-height: 23px;" required>
 
                                                     <span ng-show="submitted == true && customerform.Date.$error.required" class="color">Please fill</span>
                                                 </div>
                                             </div>
                                             <div class="row-fluid" align="right">
                                                
-                                                <input type="button" class="custom-button" value="SAVE" style="    padding: 5px 25px;
+                                                <input type="button" class="custom-button" value="SAVE" style="padding: 5px 25px;
             margin: 4px 2px;
             text-align: center;
             font-size: 16px;
@@ -382,7 +381,7 @@
 
                                             <div class="row-fluid">
                                                 <div class="col-sm-3 col-md-3">
-                                                    <label class=" required-field">AMMOUNT PAID</label>
+                                                    <label class=" required-field">AMOUNT PAID</label>
                                                 </div>
                                                 <div class="col-sm-3 col-md-3 field-item">
                                                     <select ng-model="CustomerDetail.CourrencyList" ng-options="currencylist.ID as currencylist.Name for currencylist in CurrencyList" name="CurrencyList" style="width:23%; color:green;" required>
