@@ -40,5 +40,9 @@ namespace RentACar.Controllers
         {
             return View();
         }
+        public ActionResult CarDetailsView()
+        {
+            return View();
+        }
     }
 }

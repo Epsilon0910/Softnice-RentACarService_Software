@@ -282,6 +282,7 @@
     <Content Include="Views\Home\SerivceSection.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Home\User.cshtml" />
+    <Content Include="Views\Home\CarDetailsView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
