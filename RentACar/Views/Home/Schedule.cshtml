@@ -156,9 +156,10 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse  navigation" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="/Home/Landing">HOME</a></li>
-                                    <li><a href="/Home/Book">BOOK</a></li>
-                                    <li><a href="/Home/Schedule">ORDERS</a></li>
+                                    <li>@Html.ActionLink("Works", "Landing")</li>
+                                    <li>@Html.ActionLink("Book a Car", "Book")</li>
+                                    <li>@Html.ActionLink("Logout", "Login")</li>
+                                    <li>@Html.ActionLink("Usernme", "User")</li>
                                     <li class="dropdown user-profile">
                                         <a href="#"><img src="https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/15665679_1237994332952216_4527336322988317174_n.jpg?oh=45b7dd69c89095ea61286cb72c1ddab8&oe=5AA705FC" class="img-responsive img-circle margin" alt="profile" width="35" height="35" /></a>
                                         <ul class="dropdown-menu profile-dropdown">
@@ -213,7 +214,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td><button type="button" class="btn btn-danger" style="margin-right: -29px;">Cancel</button></td>
                         </tr>
                         <tr>
                             <td> </td>
@@ -224,7 +225,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td><button type="button" class="btn btn-danger" style="margin-right: -29px;">Cancel</button></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -235,7 +236,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td><button type="button" class="btn btn-danger" style="margin-right: -29px;">Cancel</button></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -246,7 +247,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td><button type="button" class="btn btn-danger" style="margin-right: -29px;">Cancel</button></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -257,7 +258,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td><button type="button" class="btn btn-danger" style="margin-right: -29px;">Cancel</button></td>
                         </tr>
                     </tbody>
                 </table>
