@@ -213,6 +213,17 @@
                                 </select>                          
                         </div>
                     <div class="row-fluid">
+
+                        <label>Driving Mode:</label>
+
+                        <select ng-model="lan.DrivingModeList" ng-options="b.ID as b.Name for b in DrivingModeList">
+                            <option value="">--Select--</option>
+                        </select>
+                    </div>
+                       
+                    
+                    
+                    <div class="row-fluid">
                         <label>PICKUP :</label>
 
                         <select ng-model="lan.Picklist" ng-options="y.ID as y.Name for y in Picklist">
