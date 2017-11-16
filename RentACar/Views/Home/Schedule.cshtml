@@ -21,8 +21,9 @@
     @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>*@
     <script src="~/Scripts/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="~/Scripts/angular.min.js"></script>
-
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/AngularControllers/MasterCtrl.js"></script>
+    <script src="~/AngularControllers/OrdersCtrl.js"></script>
 
     <style>
         body {
@@ -45,8 +46,6 @@
         .user-profile:hover .profile-dropdown{
             display:block;
         }
-        
-        
         .main {
             margin-top: 50px;
             margin-bottom: 50px;
@@ -193,71 +192,39 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>RECIEPT NO.</th>
+                            <th>RECEIPT ID</th>
+                            <th>LINE NO.</th>
                             <th>CUSTOMER NAME</th>
-                            <th>MOBILE N0.</th>
+                            <th>CONTACT NUMBER</th>
+                            <th>CAR NAME</th>
                             <th>CAR REG. NO.</th>
+                            <th>BOOKING TYPE</th>
+                            <th>DURATION</th>
                             <th>START DATE</th>
                             <th>END DATE</th>
-                            <th>CREATE DATE</th>
-                            <th>STATUS</th>
+                            <th>CURRENCY</th>
+                            <th>INITIAL PAYMENT</th>
+                            <th>BOOKING STATUS</th>
+                            <th>CREATED DATE</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td>@Html.ActionLink("Dennis", "Ticket")</td>
-                            <td></td>
-                            <td>@Html.ActionLink("MP-04-Z2872", "CarDetailsView")</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button type="button" class="btn btn-danger" style="margin-right: -29px;">Cancel</button></td>
-                        </tr>
-                        <tr>
-                            <td> </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button type="button" class="btn btn-danger" style="margin-right: -29px;">Cancel</button></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button type="button" class="btn btn-danger" style="margin-right: -29px;">Cancel</button></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button type="button" class="btn btn-danger" style="margin-right: -29px;">Cancel</button></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{Order["RECEIPT ID"]}}</td>
+                            <td>{{Order["LINE NO."]}}</td>
+                            <td>{{Order["CUSTOMER NAME"]}}</td>
+                            <td>{{Order["CONTACT NUMBER"]}}</td>
+                            <td>{{Order["CAR NAME"]}}</td>
+                            <td>{{Order["CAR REG. NO."]}}</td>
+                            <td>{{Order["BOOKING TYPE"]}}</td>
+                            <td>{{Order["DURATION"]}}</td>
+                            <td>{{Order["START DATE"]}}</td>
+                            <td>{{Order["END DATE"]}}</td>
+                            <td>{{Order["CURRENCY"]}}</td>
+                            <td>{{Order["INITIAL PAYMENT"]}}</td>
+                            <td>{{Order[" BOOKING STATUS"]}}</td>
+                            <td>{{Order["CREATED DATE"]}}</td>
                             <td><button type="button" class="btn btn-danger" style="margin-right: -29px;">Cancel</button></td>
                         </tr>
                     </tbody>
@@ -296,5 +263,3 @@
     </footer>
 </body>
 </html>
-<script src="~/AngularControllers/MasterCtrl.js"></script>
-<script src="~/AngularControllers/OrdersCtrl.js"></script>
