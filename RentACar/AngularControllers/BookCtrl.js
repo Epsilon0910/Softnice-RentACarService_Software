@@ -1,4 +1,4 @@
-﻿rentapp.controller('BookCtrl', function ($scope) {
+﻿rentapp.controller('BookCtrl', function ($scope, $location) {
     $scope.cusname = '';
     $scope.cusnumber = '';
     $scope.email = '';
@@ -11,4 +11,27 @@
         $scope.myForm.$valid
         
     }
+    $scope.pageload = function () {
+        var abc = getUrlParameter('BAC', $location.absUrl())
+       
+        if (abc == '2')
+        {
+            $scope.buttonnext = false;
+
+            $scope.buttonsave = true;
+      
+          
+        }
+        if (abc == '3')
+        {
+            $scope.buttonsave = false;
+            $scope.buttonnext = true;
+       
+        }
+
+    }
+    $scope.pageload();
+   
+   
+
 });
