@@ -97,11 +97,12 @@
             .row-fluid select {
                 width: 74%;
                 height: 28px;
-                /*.row-fluid input[type=date]
-
+            }
+               
+             .row-fluid input[type=date]    
         {
-            width: 50%;
-            height: 23px;*/
+            width: 60%;
+            height: 23px;
         }
 
         .customer-detail-fields-wrapper {
@@ -188,7 +189,7 @@
             border-right: 5px solid #ddd;
             padding-bottom: 25px;
             padding-top: 25px;
-     
+            color:black;
         }
     </style>
 </head>
@@ -218,11 +219,9 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right">
-
                                     <li>@Html.ActionLink("Works", "Landing")</li>
-                                    <li ><a href="../Home/Book?BAC=2">Book a Car</a></li>
-                                    <li>@Html.ActionLink("Logout", "Login")</li>
-                                    <li>@Html.ActionLink("Usernme", "User")</li>
+                                    <li>@Html.ActionLink("Book a Car", "Book")</li>
+                                    <li>@Html.ActionLink("Logout", "Login")</li>                                   
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                         </div><!-- /.container-fluid -->
@@ -235,14 +234,11 @@
     <!-- contact form start -->
 
         <section id="contact-form" class="container">
-            <div class="customer" style=" border: 5px solid #ddd;
- border-bottom:10px solid #ddd;
+            <div class="customer" style="border: 5px solid #ddd;border-bottom:10px solid #ddd;
             padding: 25px;
             padding-top:unset;
-            padding-bottom:35px;
-              ">
-                <div class="section-header" style="    margin-right: -25px;
-    margin-left: -24px">
+            padding-bottom:35px;">
+                <div class="section-header" style="margin-right: -25px; margin-left: -24px">
                     Add Customer Details
 
                     <div class="navbar-form" role="search" style="display: unset; margin-left: 627px;">
@@ -259,13 +255,12 @@
 
                 <form name="customerform" novalidate>
                     <div class="customer-detail-fields-wrapper">
-                        <div class="panel with-nav-tabs panel-default" style="padding: 15px;
-    MARGIN-BOTTOM: 5px;">
+                        <div class="panel with-nav-tabs panel-default" style="padding: 15px; MARGIN-BOTTOM: 30px;">
                             <div class="panel-heading">
 
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#bookdetails" data-toggle="tab">BASIC DETAILS</a></li>
-                                    <li><a href="#PaymentDetails" data-toggle="tab">PAYMENT DETAILS</a></li>
+                                    <li class="active" id="bookdTab"><a href="#bookdetails" data-toggle="tab">BASIC DETAILS</a></li>
+                                    <li  id="PaymentTab" ><a href="#PaymentDetails" data-toggle="tab">PAYMENT DETAILS</a></li>
 
                                 </ul>
 
@@ -288,8 +283,8 @@
                                                         <label class="required-field">CUSTOMER NAME:<span class="asterisc" style="color:red">*</span> </label>
                                                     </div>
                                                     <div class="col-sm-3 col-md-3 field-item">
-                                                        <input type="text" placeholder="" name="CustomerName" ng-model="CustomerDetail.CustomerName" required />
-                                                        <span ng-show="submitted == true && customerform.CustomerName.$error.required" class="color">Please fill</span>
+                                                        <input type="text" placeholder="" name="customername" ng-model="customername" required />
+                                                        <span ng-show="submitted == true && customerform.customername.$error.required" class="color">Required</span>
                                                     </div>
                                                 </div><br />
                                                 <div class="row row-fluid" style="margin-right: 5px;">
@@ -297,20 +292,17 @@
                                                         <label class="required-field">CUSTOMER EMAIL:</label>
                                                     </div>
                                                     <div class="col-sm-3 col-md-3 field-item">
-                                                        <input type="text" placeholder="" name="CustomerEmail" ng-model="CustomerDetail.CustomerEmail" required />
-                                                        <span ng-show="submitted == true && customerform.CustomerEmail.$error.required" class="color">Please fill</span>
+                                                        <input type="text" placeholder="" name="customeremail" ng-model="customeremail" required />
+                                                        <span ng-show="submitted == true && customerform.customeremail.$error.required" class="color">Required</span>
                                                     </div>
                                                 </div><br />
                                                 <div class="row-fluid">
                                                     <div class="col-sm-3 col-md-3">
                                                         <label class="required-field">PHONE NUMBER:<span class="asterisc" style="color:red">*</span> </label>
                                                     </div>
-                                                    <div class="col-sm-3 col-md-3 field-item">
-                                                        <select ng-model="CustomerDetail.CountrycodeList" ng-options="countrycodelist.ID as countrycodelist.Name for countrycodelist in CountrycodeList" name="CountryList" style="width:20%; color:green;" required>
-                                                            <option value="">+91</option>
-                                                        </select>
-                                                        <input type="text" placeholder="" name="PhoneNumber" ng-model="CustomerDetail.PhoneNumber" required style="width:49%; font-size: 15px; color:green;" />
-                                                        <span ng-show="submitted == true && customerform.PhoneNumber.$error.required" class="color">Please fill</span>
+                                                    <div class="col-sm-3 col-md-3 field-item">                                                     
+                                                        <input type="text" placeholder="" name="Phonenumber" ng-model="Phonenumber" required style="width:80%; font-size: 15px; color:green;" />
+                                                        <span ng-show="submitted == true && customerform.Phonenumber.$error.required" class="color">Required</span>
                                                     </div>
                                                 </div><br><br><br />
                                                 <div class="row-fluid">
@@ -318,27 +310,14 @@
                                                         <label class="required-field">ALTERNATE NUMBER:</label>
                                                     </div>
                                                     <div class="col-sm-3 col-md-3 field-item">
-                                                        <select ng-model="CustomerDetail.alternateCountrycodeList" ng-options="alternatecountrycodelist.ID as alternatecountrycodelist.Name for alternatecountrycodelist in alternateCountrycodeList" name="alternateCountrycodeList" style="width:20%; color:green;" required>
-                                                            <option value="">+91</option>
-                                                        </select>
-                                                        <input type="text" placeholder="" name="PhoneNumber" ng-model="CustomerDetail.AlternatePhoneNumber" required style="width:49%; font-size: 15px; color:green;" />
-                                                        <span ng-show="submitted == true && customerform.AlternatePhoneNumber.$error.required" class="color">Please fill</span>
+                                                        <input type="text" placeholder="" name="AlternatePhoneNumber" ng-model="CustomerDetail.AlternatePhoneNumber" required style="width:80%; font-size: 15px; color:green;" />
+                                                        <span ng-show="submitted == true && customerform.AlternatePhoneNumber.$error.required" class="color">Required</span>
                                                     </div>
-                                                </div><br><br /><br />
-                                                <div class="row-fluid">
-                                                    <div class="col-sm-3 col-md-3">
-                                                        <label class="required-field">CREATE DATE:<span class="asterisc" style="color:red">*</span> </label>
-                                                    </div>
-                                                    <div class="col-sm-3 col-md-3 field-item">
-                                                        <input type="text" name="Date" ng-model="CustomerDetail.DateAdded" required>
-
-                                                        <span ng-show="submitted == true && customerform.Date.$error.required" class="color">Please fill</span>
-                                                    </div>
-                                                </div>
+                                                </div><br><br />
+                                                
                                                 <div class="row-fluid" align="right">
 
-          <div ng-show="buttonsave">
-                                                    <input type ="button" ng-model="savebtn" class="custom-button" value="SAVE" @*style="padding: 5px 25px;
+                                                    <a href="#PaymentDetails"class="custom-button " ng-click="TabShow('PaymentDetails')" data-toggle="tab" style="padding: 5px 25px; 
             margin: 4px 2px;
             text-align: center;
             font-size: 16px;
@@ -347,21 +326,10 @@
             color: white;
             border: 2px solid #1db954;
             border-radius: 5px;
-            letter-spacing: 1px;"*@></div>
-                                                    <div ng-show="buttonnext">
-                                                        <input type="button" ng-model="nextbtn" class="custom-button" value="NEXT" @*style="padding: 5px 25px;
-            margin: 4px 2px;
-            text-align: center;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #1db954;
-            color: white;
-            border: 2px solid #1db954;
-            border-radius: 5px;
-            letter-spacing: 1px;"*@>
-                                                    </div>
-                                                </div>
-                                                <div  class="row row-fluid"><a href="">Existing Customer History</a></div>
+            letter-spacing: 1px;">Next</a>
+                                                    
+                                                </div><br />
+                                                <div class="row row-fluid"><a href="">Existing Customer History</a></div>
                                             </div>
                                         </div>
 
@@ -377,19 +345,19 @@
                                                     <label>DRIVING LICENSE NO:<span class="asterisc" style="color:red">*</span> :</label>
                                                 </div>
                                                 <div class="col-sm-3 col-md-3 field-item">
-                                                    <input type="text" placeholder="" />
-
+                                                    <input type="text" placeholder="" name="Drivinglicense" ng-model="Drivinglicense" />
+                                                    <span ng-show="submitted == true && customerform.CountryList.$error.required" class="color">Required</span>
                                                 </div>
 
                                                 <div class="col-sm-3 col-md-3">
                                                     <label>COUNTRY <span class="asterisc" style="color:red">*</span> </label>
                                                 </div>
                                                 <div class="col-sm-3 col-md-3 field-item">
-                                                    <select ng-model="CustomerDetail.Country" ng-options="countrylist.ID as countrylist.Name for countrylist in CountryList" name="CountryList" required>
+                                                    <select ng-model="CustomerDetail.Country" ng-options="Countries.NAME for Countries in Countrylist" name="CountryList" required>
                                                         <option value="">--SELECT--</option>
 
                                                     </select>
-                                                    <span ng-show="submitted == true && customerform.CountryList.$error.required" class="color">Please fill</span>
+                                                    <span ng-show="submitted == true && customerform.CountryList.$error.required" class="color">Required</span>
                                                 </div>
 
 
@@ -403,23 +371,23 @@
                                                     <label>PASSPORT NUMBER :</label>
                                                 </div>
                                                 <div class="col-sm-3 col-md-3 field-item">
-                                                    <input type="text" placeholder="" />
-
+                                                    <input type="text" placeholder="" name="Passportnumber"ng-model="Passportnumber"/>
+                                                    <span ng-show="submitted == true && customerform.Passportnumber.$error.required" class="color">Required</span>
                                                 </div>
 
 
                                                 <div class="row-fluid">
                                                     <div class="col-sm-3 col-md-3">
-                                                        <label class=" required-field">AMOUNT PAID:<span class="asterisc" style="color:red">*</span> </label>
+                                                        <label class="required-field">AMOUNT PAID:<span class="asterisc" style="color:red">*</span> </label>
                                                     </div>
                                                     <div class="col-sm-3 col-md-3 field-item">
-                                                        <select ng-model="CustomerDetail.CourrencyList" ng-options="currencylist.ID as currencylist.Name for currencylist in CurrencyList" name="CurrencyList" style="width:23%; color:green;" required>
+                                                        <select ng-model="CustomerDetail.CourrencyList" ng-options="Currency.CODE for Currency in currencystatus" name="CurrencyList" style="width:23%; color:green;" required>
                                                             <option value="">$</option>
                                                         </select>
-                                                        <input type="text" placeholder="" name="AmmountPaid" ng-model="CustomerDetail.AmmountPaid" required style="width:49%; font-size: 15px; color:green;" />
-                                                        <span ng-show="submitted == true && customerform.AmmountPaid.$error.required" class="color">Please fill</span>
+                                                        <input type="text" placeholder="" name="Amountpaid" ng-model="Amountpaid" required style="width:49%; font-size: 15px; color:green;" />
+                                                        <span ng-show="submitted == true && customerform.Amountpaid.$error.required" class="color">Required</span>
                                                     </div>
-                                                </div>
+                                                </div><br />
                                                 <div class="row row-fluid">
 
                                                     <div class="col-sm-3 col-md-3">
@@ -427,20 +395,20 @@
                                                     </div>
                                                     <div class="col-sm-3 col-md-3" style="MARGIN-LEFT: 46px;">
                                                         <div class="col-sm-4 col-md-4" style="padding:0;MARGIN-RIGHT: 18px;">
-                                                            <label class="col-sm-6 col-md-6" style="padding:0;"> CARD :</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
+                                                            <label class="col-sm-6 col-md-6" style="padding:0;"> CARD</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
                                                         </div>
                                                         <div class="col-sm-4 col-md-4" style="padding:0;">
-                                                            <label class="col-sm-6 col-md-6" style="padding:0;">CASH:</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
+                                                            <label class="col-sm-6 col-md-6" style="padding:0;">CASH</label><input type="radio" class="col-sm-6 col-md-6" name="airbag-radio" />
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-3 col-md-3" style="margin-left: -44px;
     margin-right: -16px;">
-                                                        <label class=" required-field">CREATE DATE:<span class="asterisc" style="color:red">*</span> </label>
+                                                        <label class="required-field">CREATE DATE:<span class="asterisc" style="color:red">*</span> </label>
                                                     </div>
                                                     <div class="col-sm-3 col-md-3 field-item">
-                                                        <input type="date" name="Date" ng-model="CustomerDetail.DateAdded" style="    line-height: 23px;" required>
+                                                        <input type="date" name="Createdate" ng-model="Createdate" style="line-height: 23px;" required>
 
-                                                        <span ng-show="submitted == true && customerform.Date.$error.required" class="color">Please fill</span>
+                                                        <span ng-show="submitted == true && customerform.Createdate.$error.required" class="color">Required</span>
                                                     </div>
 
                                                 </div>
@@ -452,50 +420,32 @@
                                                         <label>PAYMENT STATUS <span class="asterisc" style="color:red">*</span> </label>
                                                     </div>
                                                     <div class="col-sm-3 col-md-3 field-item">
-                                                        <select ng-model="CustomerDetail.paymentstatus" ng-options="paymentstatuslist.ID as paymentstatuslist.Name for paymentstatuslist in PaymentStatusList" name="PaymentStatusList" required>
+                                                        <select ng-model="CustomerDetail.paymentstatus" ng-options="Payment.NAME for Payment in Paymentstatus" name="PaymentStatusList" required>
                                                             <option value="">--SELECT--</option>
 
                                                         </select>
-                                                        <span ng-show="submitted == true && customerform.PaymentStatusList.$error.required" class="color">Please fill</span>
+                                                        <span ng-show="submitted == true && customerform.PaymentStatusList.$error.required" class="color">Required</span>
                                                     </div>
                                                 </div>
-                                                <div class="row-fluid" align="right" style="display:inline-flex; margin-right: -767px;">
-
-                                                    @*"UNABLE TO FETCH  CLASS"*@
-                                                    <div class="upload-btn-wrapper" style="position:relative;
-                                                     overflow: hidden;
-                                                         margin-top: 4px;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 3px;">
-                                                        <button class="btn" style="color:white;
-                                                            background-color:#1db954;
-                                                            padding: 8px 20px;
-                                                            border-radius: 5px;
-                                                            font-size:15px;">
-                                                            Upload a file
-                                                        </button>
-                                                        <input type="file" name="myfile" style="font-size :100px;
+                                                
+                                                
+                                                <div class="row-fluid">
+                                                    <input type="button" href="#bookdetails" class="custom-button pull-left"  value="Back" data-toggle="tab" ng-click="TabShow('bookdetails')">
+                                                    </div>
+                                                    <div class="upload-btn-wrapper" align="right"  >
+                                                        <input type="button" class="custom-button" value="Upload a file" />
+                                                           
+                                                            
+                                                        
+                                                        <input type="file" name="myfile"  style="font-size :80px;
                                                            position :absolute;
-                                                           left: 0;
-                                                           top: 0;
+                                                           right: auto;
+                                                           
                                                            opacity: 0;" />
+                                                        <input type="button" class="custom-button" value="Submit" align="right">
                                                     </div>
-
-
-                                                    <input type="button" class="custom-button" value="SUBMIT" style="    padding: 5px 25px;
-                                                                                margin: 4px 2px;
-                                                                                text-align: center;
-                                                                                font-size: 16px;
-                                                                                cursor: pointer;
-                                                                                background-color: #1db954;
-                                                                                color: white;
-                                                                                border: 2px solid #1db954;
-                                                                                border-radius: 5px;
-                                                                                letter-spacing: 1px;" onclick="window.location.href='@Url.Action("Schedule" , "Home")';">
-
-                                                </div>
-
+                 
+                                                
                                             </div>
 
                                         </div>
@@ -509,16 +459,7 @@
                         </div>
                     </div>
                 </form>
-                <input type="button" class="custom-button" value="BACK" style="padding: 5px 25px;
-            margin: 4px 2px;
-            text-align: center;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #1db954;
-            color: white;
-            border: 2px solid #1db954;
-            border-radius: 5px;
-            letter-spacing: 1px; ">
+               
             </div>
 </section>
    
