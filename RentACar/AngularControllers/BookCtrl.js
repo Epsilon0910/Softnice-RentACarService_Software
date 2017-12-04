@@ -1,31 +1,5 @@
 ﻿rentapp.controller('BookCtrl', function ($scope, $http) {
-    $scope.submitted = false;
-    $scope.submit = function () {
-        var book = new Object();
-        book.customername = $scope.customername;
-        book.customeremail = $scope.customeremail;
-        book.Phonenumber = $scope.Phonenumber;
-        book.Drivinglicense = $scope.Drivinglicense;
-        book.Passportnumber = $scope.Passportnumber;
-        book.Paymentstatus = $scope.Paymentstatus;
-        book.Amountpaid = $scope.Amountpaid;
-        book.Createdate = $scope.Createdate;
-        book.alternatephoneno = $scope.alternatephoneno;
-        book.Country = $scope.Country;
-        book.Payment = $scope.Payment;
-        $http({
-            method: 'POST',
-            url: "http://localhost:51647/api/OrderServices/Index",
-            data: user
-        }).then(function success(response) {
-            alert("Data Saved successfully");
-            //window.location.href = "Members";
-        },
-       function error(error) {
-           alert("Some technical error occured: " + error);
-       });
-    }
-
+   
     $scope.countryorder = function () {
         var book = new Object();
         book.country = '';
