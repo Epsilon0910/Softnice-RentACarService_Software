@@ -41,29 +41,7 @@ namespace BookCarAPI.Controllers
             }
             return dataSet;
         }
-        [HttpPost]
-        [Route("api/OrderServices/bookcar")]
-        public void bookcar(carbook cb)
-        {
-            var cusname = cb.Customername;
-            var cusemail = cb.customeremail;
-            var phone = cb.phonenumber;
-            var alternateno = cb.alternatenumber;
-            var passportno = cb.Passportnumber;
-            var drivinglicense = cb.Drivinglicense;
-            var country = cb.Country;
-            var amountpaid = cb.Amountpaid;
-            var paymenttype = cb.paymenttype;
-            var paymentstatus = cb.Paymentstatus;
-            var createdate = cb.Createdate;
-            OracleConnection connection = new OracleConnection();
-            connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBConnectionDHC"].ToString();
-            connection.Open();
-            OracleCommand command = connection.CreateCommand();
-            string query = "INSERT INTO TEMP (EMAIL,USERNAME,PASSWORD,CONFIRMPASSWORD,MOBILE) VALUES('" + cusname + "','" + cusemail + "','" + phone + "','" + alternateno + "','" + passportno + "','" + drivinglicense + "','" + country + "','" + amountpaid + "','" + paymenttype + "','" + paymentstatus + "','" + createdate +"')";
-            command.CommandText = query;
-            command.ExecuteNonQuery();
-        }
+        
         [HttpPost]
         [Route("api/OrderServices/Countries")]
         public DataSet Countries()
