@@ -111,6 +111,16 @@
             background-color: #e1dcd6;
         }
 
+       
+
+            .custom-button:hover {
+            background-color: lightgrey;
+            color: black;
+        }
+
+        .asterisc {
+            color: red;
+        }
         .custom-button {
             padding: 5px 25px;
             margin: 4px 2px;
@@ -122,15 +132,6 @@
             border: 2px solid #1db954;
             border-radius: 5px;
             letter-spacing: 1px;
-        }
-
-            .custom-button:hover {
-                background-color: #1db954;
-                color: black;
-            }
-
-        .asterisc {
-            color: red;
         }
 
         .add-on .input-group-btn > .btn {
@@ -163,35 +164,20 @@
         }
 
         .navbar-nav > li > a {
-            border-right: 1px solid #ddd;
             padding-bottom: 15px;
             padding-top: 15px;
+            font-weight:bold;
         }
 
         .navbar-nav:last-child {
             border-right: 0;
         }
-
-        .custom-button {
-            padding: 5px 25px;
-            margin: 4px 2px;
-            text-align: center;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #1db954;
-            color: white;
-            border: 2px solid #1db954;
-            border-radius: 5px;
-            letter-spacing: 1px;
-        }
-
         .customer {
             border-right: 5px solid #ddd;
             padding-bottom: 25px;
             padding-top: 25px;
             color: black;
         }
-
         input[type=file] {
             display: inline;
         }
@@ -205,7 +191,6 @@
                 <div class="col-md-12">
                     <!-- header Nav Start -->
                     <nav class="navbar navbar-default">
-
                         <div class="container-fluid">
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <div class="navbar-header">
@@ -214,27 +199,27 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
                                 </button>
-
-
                                 <img src="~/Content/mytemplate/img/logo.png" />
-
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
                                 <ul class="nav navbar-nav navbar-right">
                                     <li>@Html.ActionLink("Works", "Landing")</li>
-                                    <li>@Html.ActionLink("Book a Car", "Book")</li>
+                                    <li>@Html.ActionLink("Book A Car", "Book")</li>
                                     <li>@Html.ActionLink("Logout", "Login")</li>
+                                    <li>@Html.ActionLink("Usernme", "User")</li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                         </div><!-- /.container-fluid -->
-
                     </nav>
                 </div>
             </div>
         </div>
-    </header><!-- header close -->
+    </header>
+   <!-- header close -->
     <!-- contact form start -->
 
     <section id="contact-form" class="container">
@@ -321,16 +306,8 @@
 
                                             <div class="row-fluid" align="right">
 
-                                                <a href="#PaymentDetails" class="custom-button " ng-click="TabShow('PaymentDetails')" data-toggle="tab" style="padding: 5px 25px;
-            margin: 4px 2px;
-            text-align: center;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #1db954;
-            color: white;
-            border: 2px solid #1db954;
-            border-radius: 5px;
-            letter-spacing: 1px;">Next</a>
+                                                <a href="#PaymentDetails" class="custom-button" ng-click="TabShow('PaymentDetails')" data-toggle="tab" 
+            >Next</a>
 
                                             </div><br />
                                             <div class="row row-fluid"><a href="">Existing Customer History</a></div>
